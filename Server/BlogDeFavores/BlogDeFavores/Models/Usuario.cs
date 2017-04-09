@@ -12,7 +12,7 @@ namespace BlogDeFavores.Models
         public string Email { get; set; }
         public int Telefono { get; set; }
         public int Puntaje { get; set; }
-        public string Categoria { get; set; }
+        public Categoria Categoria { get; set; }
         public List<Gauchada> GauchadasRealizadas { get; set; }
         public List<Gauchada> GauchadasIniciadas { get; set; }
         public int Credito { get; set; }
