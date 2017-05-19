@@ -63,7 +63,11 @@ namespace BlogDeFavores
             }
 
             app.UseStaticFiles();
-
+            using (var scope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
+            using (var context = scope.ServiceProvider.GetService<GauchadaDbContext>()) {
+                context.Database.EnsureCreated();
+            }
+                
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
