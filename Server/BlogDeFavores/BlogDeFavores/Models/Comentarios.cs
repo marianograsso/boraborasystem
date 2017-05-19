@@ -7,5 +7,6 @@ namespace BlogDeFavores.Models
         public Guid Id { get; set; }
         public string Texto { get; set; }
         public Usuario Autor { get; set; }
+        public string Respuesta { get; set; }
     }
 }

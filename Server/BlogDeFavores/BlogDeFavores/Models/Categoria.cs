@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace BlogDeFavores.Models
 {
@@ -6,6 +8,14 @@ namespace BlogDeFavores.Models
     {
         public Guid Id { get; set; }
         public string Nombre { get; set; }
-        public int Rango { get; set; }
+        public string Imagen { get; set; }
+        public Range Rango { get; set; }
     }
+
+    public class Range
+    {
+        int Start { get; set; }
+        int End { get; set; }
+    }
+    
 }

@@ -11,7 +11,7 @@ namespace BlogDeFavores.Services
 
         public GauchadasService(IGauchadaDao gauchadaDao)
         {
-            this._gauchadaDao = gauchadaDao;
+            _gauchadaDao = gauchadaDao;
         }
 
         public void GetById(Guid id)
@@ -39,9 +39,9 @@ namespace BlogDeFavores.Services
             _gauchadaDao.Eliminar(id);
         }
 
-        public Gauchada Editar(Guid id, Gauchada gauchada)
+        public void Editar(Guid id, Gauchada gauchada)
         {
-            return _gauchadaDao.Editar(id, gauchada);
+            _gauchadaDao.Editar(id, gauchada);
         }
     }
 }

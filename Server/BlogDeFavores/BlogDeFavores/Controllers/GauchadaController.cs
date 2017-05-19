@@ -31,5 +31,11 @@ namespace BlogDeFavores.Controllers
         {
             gauchadasService.Editar(id, gauchada);
         }
+
+        [HttpGet, Route("/api/gauchada/{id}")]
+        public void GetGauchada(Guid id)
+        {
+            gauchadasService.GetById(id);
+        }
     }
 }

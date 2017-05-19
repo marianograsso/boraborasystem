@@ -1,0 +1,39 @@
+<head ng-app="clienteApp">
+    <style>
+        .ng-invalid{}
+    </style>
+</head>
+
+<form class="form-horizontal" ng-controller="UsuariocontrollerCtrl" action='' method="POST">
+  <fieldset>
+    <div id="legend">
+      <legend class="">Register</legend>
+    </div>
+     
+    <div class="control-group">
+      <label class="control-label" for="email">E-mail</label>
+      <div class="controls">
+        <input type="email" name="email" ng-model="usuario.email" placeholder="tuemail@gmail.com" required>
+        <span ng-show="frm.email.$error.required" class="help-block">Please provide your E-mail</span>
+        <span ng-show="frm.email.$error.email" class="help-block">Not an email!</span>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="email">Password</label>
+      <div class="controls">
+        <input type="password" name="password" ng-model="usuario.password" required ng-minlength="6" maxlength="15" class="input-xlarge">
+        <span ng-show="frm.password.$error.required" class="help-block">Required!</span>
+        <span ng-show="frm.password.$error.minlenght" class="help-block">too short!</span>
+        <span ng-show="frm.password.$error.maxlenght" class="help-block">too long!</span>
+      </div>
+    </div>
+ 
+    <div class="control-group">
+      <!-- Button -->
+      <div class="controls">
+        <button ng-click="registrar()" class="btn btn-success">Register</button>
+      </div>
+    </div>
+  </fieldset>
+</form>
