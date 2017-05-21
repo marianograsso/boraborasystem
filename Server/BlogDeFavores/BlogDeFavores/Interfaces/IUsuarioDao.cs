@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using BlogDeFavores.Models;
 
 namespace BlogDeFavores.Interfaces
@@ -8,6 +9,7 @@ namespace BlogDeFavores.Interfaces
         Usuario GetById(Guid id);
         Usuario Registrar(Usuario usuario);
         void Eliminar(Guid id);
-        void Editar(Guid id, Usuario usuario);  
+        void Editar(Guid id, Usuario usuario);
+        Usuario GetByEmailyPassword(string email, string password);
     }
 }

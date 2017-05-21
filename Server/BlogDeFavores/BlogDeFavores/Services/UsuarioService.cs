@@ -32,5 +32,10 @@ namespace BlogDeFavores.Services
         {
             return usuarioDao.GetById(id);
         }
+
+        public Usuario GetByEmailyPassword(string email, string password)
+        {
+            return usuarioDao.GetByEmailyPassword(email, password);
+        }
     }
 }

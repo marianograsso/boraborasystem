@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using BlogDeFavores.Interfaces;
 using BlogDeFavores.Models;
 
@@ -42,6 +43,11 @@ namespace BlogDeFavores.Dao
         public Usuario GetById(Guid id)
         {
             return context.Usuarios.Find(id);
+        }
+
+        public Usuario GetByEmailyPassword(string email, string password)
+        {
+            return context.Usuarios.FirstOrDefault(x => x.Email == email && x.Password == password);
         }
     }
 }
