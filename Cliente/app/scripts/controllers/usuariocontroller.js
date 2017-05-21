@@ -9,7 +9,8 @@
  */
 angular.module('clienteApp')
   .controller('UsuariocontrollerCtrl', function ($scope, usuarioService) {
-     
+     $scope.usuarioOff = true;
+     $scope.usuarioOn  = false;
      
      $scope.registrar = function(){
       usuarioService.registrarUsuario($scope.usuario)
@@ -17,7 +18,15 @@ angular.module('clienteApp')
       }, function (error){
         console.error("Error", error)
       })
-    }
+    };
+    $scope.loguear = function(){
+      usuarioService.loguear($scope.emailUsuario, $scope.password)
+      .then(function(vals){
+      }, function(error){
+        console.error("Error", error)
+      })
+      $scope.usuarioOn = true;
+    }  
 
     function createUser() {
         var user = {
