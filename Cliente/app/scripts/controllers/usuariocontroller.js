@@ -9,9 +9,9 @@
  */
 angular.module('clienteApp')
   .controller('UsuariocontrollerCtrl', function ($scope, usuarioService) {
-     $scope.usuarioOff = true;
-     $scope.usuarioOn  = false;
-     
+     $scope.usuarioOff = true
+     $scope.usuarioOn  = false
+
      $scope.registrar = function(){
       usuarioService.registrarUsuario($scope.usuario)
       .then(function(vals){
@@ -20,7 +20,7 @@ angular.module('clienteApp')
       })
     };
     $scope.loguear = function(){
-      usuarioService.loguear($scope.emailUsuario, $scope.password)
+      usuarioService.getUsuario($scope.email, $scope.password)
       .then(function(vals){
       }, function(error){
         console.error("Error", error)
