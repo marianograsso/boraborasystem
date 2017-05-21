@@ -18,5 +18,24 @@ angular.module('clienteApp')
         console.error("Error", error)
       })
     }
+
+    function createUser() {
+        var user = {
+          Id: '',
+          Nombre: '',
+          Email: '',
+          Apellido: '',
+          Password: '',
+          Telefono: '',
+          Puntaje: '',
+          Avatar: '',
+          Categoria: '',
+          OfertasRealizadas: '',
+          GauchadasIniciadas: '',
+          Credito: '',
+          ComprasRealizadas: '',
+        };
+    };
+
     
   });

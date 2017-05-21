@@ -1,7 +1,10 @@
-﻿namespace BlogDeFavores.Models
+﻿using System;
+
+namespace BlogDeFavores.Models
 {
     public class Calificacion
     {
+        public Guid Id { get; set; }
         public Puntaje Puntaje { get; set; }
         public string Texto { get; set; }
     }

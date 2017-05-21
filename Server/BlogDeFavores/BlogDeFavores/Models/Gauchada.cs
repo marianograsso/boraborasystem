@@ -14,7 +14,7 @@ namespace BlogDeFavores.Models
         public DateTime FechaInicio { get; set; }
         public DateTime FechaFin { get; set; }
         public List<Comentarios> Comentarios { get; set; }
-        public Usuario Autor { get; set; }
-        public Usuario Actor { get; set; }
+        public Guid AutorId { get; set; }
+        public Guid ActorId { get; set; }
     }
 }

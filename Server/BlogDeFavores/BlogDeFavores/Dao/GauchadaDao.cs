@@ -22,7 +22,7 @@ namespace BlogDeFavores.Dao
 
         public List<Gauchada> GetByAutor(Guid id)
         {
-            return context.Gauchadas.ToList();
+            throw new NotImplementedException();
         }
 
         public List<Gauchada> GetByActor(Guid id)
@@ -47,13 +47,9 @@ namespace BlogDeFavores.Dao
         public void Editar(Guid id, Gauchada gauchada)
         {
             Gauchada gauch = GetById(id);
-            gauch.Actor = gauchada.Actor;
-            gauch.Autor = gauchada.Autor;
+            gauch.ActorId = gauchada.ActorId;
+            gauch.AutorId = gauchada.AutorId;
             gauch.Descripcion = gauchada.Descripcion;
-
-            //gauch.Fecha = gauchada.Fecha; idem arriba
-            //gauch.Comentarios = gauchada.Comentarios; Me parece que fecha nunca habria que actualizarlo
-
             context.Gauchadas.Update(gauch);
             context.SaveChanges();
         }
