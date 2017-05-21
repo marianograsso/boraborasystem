@@ -1,7 +1,11 @@
-﻿namespace BlogDeFavores.Models
+﻿using System;
+
+namespace BlogDeFavores.Models
 {
     public class Oferta
     {
+        public Guid Id { get; set; }
+        public Guid IdOfertador { get; set; }
         public Status Estado { get; set; }
         public Calificacion Calificacion { get; set; }
     }

@@ -14,6 +14,7 @@ namespace BlogDeFavores.Models
 
     public class Range
     {
+        public Guid Id { get; set; }
         int Start { get; set; }
         int End { get; set; }
     }
