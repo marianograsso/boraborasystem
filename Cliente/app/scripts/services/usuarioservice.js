@@ -15,8 +15,8 @@ angular.module('clienteApp')
       var result = $http.post(url, usuario);
       return result;
     }
-    service.getUsuario = function(){
-      return $http.get(url);
+    service.getUsuario = function(email, password){
+      return $http.get(url + "/" + email + "/" + password);
     }
     service.deleteUsuario = function(usuario){
       return $http.delete(url + "/" + usuario.id);

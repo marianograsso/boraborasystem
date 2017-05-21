@@ -12,8 +12,8 @@ angular.module('clienteApp')
      $scope.usuarioOff = true
      $scope.usuarioOn  = false
 
-     $scope.registrar = function(){
-      usuarioService.registrarUsuario($scope.usuario)
+     $scope.registrar = function(usuario){
+      usuarioService.registrarUsuario(createUser(usuario))
       .then(function(vals){
       }, function (error){
         console.error("Error", error)
@@ -28,23 +28,24 @@ angular.module('clienteApp')
       $scope.usuarioOn = true;
     }  
 
-    function createUser() {
-        var user = {
+    function createUser(usuario) {
+        var usuarioResp = {
           Id: '',
-          Nombre: '',
-          Email: '',
-          Apellido: '',
-          Password: '',
-          Telefono: '',
+          Nombre: usuario.nombre,
+          Email: usuario.email,
+          Apellido: usuario.apellido,
+          Password: usuario.password,
+          Telefono: usuario.telefono,
           Puntaje: '',
-          Avatar: '',
+          Avatar: usuario.avatar,
           Categoria: '',
           OfertasRealizadas: '',
           GauchadasIniciadas: '',
           Credito: '',
           ComprasRealizadas: '',
         };
+        return usuarioResp;
     };
 
     
-  });
+  })
