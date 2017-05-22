@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using BlogDeFavores.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BlogDeFavores.Controllers
@@ -14,7 +11,8 @@ namespace BlogDeFavores.Controllers
             return View();
         }
 
-        public IActionResult About()
+        [HttpGet, Route("/api/asd")]
+        public IActionResult About([FromBody] Usuario usuario)
         {
             ViewData["Message"] = "Your application description page.";
 

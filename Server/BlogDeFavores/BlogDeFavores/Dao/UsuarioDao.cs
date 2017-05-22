@@ -7,9 +7,9 @@ namespace BlogDeFavores.Dao
 {
     public class UsuarioDao: IUsuarioDao
     {
-        private readonly UsuarioDbContext context;
+        private readonly GauchadaDbContext context;
 
-        public UsuarioDao(UsuarioDbContext context)
+        public UsuarioDao(GauchadaDbContext context)
         {
             this.context = context;
         }

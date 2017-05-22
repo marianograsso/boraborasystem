@@ -26,25 +26,18 @@ angular.module('clienteApp')
         console.error("Error", error)
       })
       $scope.usuarioOn = true;
-    }  
+    };
 
     function createUser(usuario) {
-        var usuarioResp = {
-          Id: '',
+        var usuario = {
           Nombre: usuario.nombre,
           Email: usuario.email,
           Apellido: usuario.apellido,
           Password: usuario.password,
           Telefono: usuario.telefono,
-          Puntaje: '',
           Avatar: usuario.avatar,
-          Categoria: '',
-          OfertasRealizadas: '',
-          GauchadasIniciadas: '',
-          Credito: '',
-          ComprasRealizadas: '',
         };
-        return usuarioResp;
+        return usuario;
     };
 
     

@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BlogDeFavores.Controllers
 {
-    [EnableCors("default")]
     public class UsuarioController: Controller
     {
         private readonly IUsuarioService usuarioService;
@@ -19,14 +18,19 @@ namespace BlogDeFavores.Controllers
         [HttpGet, Route("/api/usuario/{email}/{password}")]
         public Usuario GetUsuario(string email, string password)
         {
-            return usuarioService.GetByEmailyPassword(email,password);
+            return usuarioService.GetByEmailyPassword(email, password);
         }
 
+        [HttpGet, Route("/api/usuario/")]
+        public string GetUsuario()
+        {
+            return "asd";
+        }
 
         [HttpPost, Route("/api/usuario")]
         public Usuario RegistrarUsuario([FromBody] Usuario usuario)
         {
-            return usuarioService.Registrar(usuario);   
+            return usuarioService.Registrar(usuario);
         }
 
         [HttpDelete, Route("/api/usuario/{id}")]

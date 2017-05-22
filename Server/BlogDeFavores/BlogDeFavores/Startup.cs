@@ -4,6 +4,8 @@ using BlogDeFavores.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Cors.Internal;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -34,6 +36,7 @@ namespace BlogDeFavores
                     policy.AllowAnyOrigin()
                         .AllowAnyHeader()
                         .AllowAnyMethod();
+                    
                 });
             });
             // Add framework services.
@@ -41,14 +44,21 @@ namespace BlogDeFavores
             services.AddDbContext<GauchadaDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddSingleton<IGauchadasService, GauchadasService>();
             services.AddSingleton<IGauchadaDao, GauchadaDao>();
+            services.AddSingleton<IUsuarioService, UsuarioService>();
+            services.AddSingleton<IUsuarioDao, UsuarioDao>();
 
             services.AddMvc();
+            services.Configure<MvcOptions>(options =>
+            {
+                options.Filters.Add(new CorsAuthorizationFilterFactory("default"));
+            });
 
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
+            app.UseCors("default");
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
@@ -64,10 +74,11 @@ namespace BlogDeFavores
 
             app.UseStaticFiles();
             using (var scope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
-            using (var context = scope.ServiceProvider.GetService<GauchadaDbContext>()) {
+            using (var context = scope.ServiceProvider.GetService<GauchadaDbContext>())
+            {
                 context.Database.EnsureCreated();
             }
-                
+
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
