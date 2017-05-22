@@ -1,39 +1,74 @@
-<head ng-app="clienteApp">
-    <style>
-        .ng-invalid{}
-    </style>
-</head>
+  <div ng-controller="UsuariocontrollerCtrl" class="container">
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand">Registrar Usuario</a>
+        </div>
+      </div>
+      <div class="jumbotron">
+        <form class="form-horizontal">
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="Name">Nombre</label>
+            <div class="col-md-6">
+              <input ng-model="usuario.nombre" name="Name" type="text" placeholder="Nombre" class="form-control input-md" required="">
 
-<form class="form-horizontal" ng-controller="UsuariocontrollerCtrl" action='' method="POST">
-  <fieldset>
-    <div id="legend">
-      <legend class="">Register</legend>
-    </div>
-     
-    <div class="control-group">
-      <label class="control-label" for="email">E-mail</label>
-      <div class="controls">
-        <input type="email" name="email" ng-model="usuario.email" placeholder="tuemail@gmail.com" required>
-        <span ng-show="frm.email.$error.required" class="help-block">Please provide your E-mail</span>
-        <span ng-show="frm.email.$error.email" class="help-block">Not an email!</span>
-      </div>
-    </div>
+            </div>
+          </div>
 
-    <div class="control-group">
-      <label class="control-label" for="email">Password</label>
-      <div class="controls">
-        <input type="password" name="password" ng-model="usuario.password" required ng-minlength="6" maxlength="15" class="input-xlarge">
-        <span ng-show="frm.password.$error.required" class="help-block">Required!</span>
-        <span ng-show="frm.password.$error.minlenght" class="help-block">too short!</span>
-        <span ng-show="frm.password.$error.maxlenght" class="help-block">too long!</span>
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="Name">Apellido</label>
+            <div class="col-md-6">
+              <input ng-model="usuario.apellido" name="Apellido" type="text" placeholder="Apellido" class="form-control input-md" required="">
+
+            </div>
+          </div>
+
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="User Id">Telefono</label>
+            <div class="col-md-6">
+              <input ng-model="usuario.telefono" name="telefono" type="tel" placeholder="telefono" class="form-control input-md" required="">
+
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="User Id">Avatar</label>
+            <div class="col-md-6">
+              <input ng-model="usuario.avatar" name="avatar" type="img" placeholder="Avatar" class="form-control input-md" required="">
+
+            </div>
+          </div>
+
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="User Name">Email</label>
+            <div class="col-md-6">
+              <div class="input-group input-group-sm">
+                <span class="input-group-addon" id="sizing-addon1">@</span>
+                <input ng-model="usuario.email" type="email" class="form-control" placeholder="Email" aria-describedby="sizing-addon1">
+              </div>
+            </div>
+          </div>
+
+          <!-- Password input-->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="Password">Password</label>
+            <div class="col-md-6">
+              <input ng-model="usuario.password" name="Password" type="password" placeholder="Password" class="form-control input-md" required="">
+            </div>
+          </div>
+
+          <br>
+
+          <!-- Button -->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for=""></label>
+            <div class="col-md-4">
+              <button ng-click="registrar(usuario)" name="" class="btn btn-success">Registrar</button>
+            </div>
+          </div>
+
+        </form>
       </div>
-    </div>
- 
-    <div class="control-group">
-      <!-- Button -->
-      <div class="controls">
-        <button ng-click="registrar()" class="btn btn-success">Register</button>
-      </div>
-    </div>
-  </fieldset>
-</form>
+  </div>
