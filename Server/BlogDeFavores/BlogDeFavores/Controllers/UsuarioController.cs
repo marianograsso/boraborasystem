@@ -16,9 +16,9 @@ namespace BlogDeFavores.Controllers
         }
 
         [HttpGet, Route("/api/usuario/{email}/{password}")]
-        public Usuario GetUsuario(string email, string password)
+        public IActionResult GetUsuario(string email, string password)
         {
-            return usuarioService.GetByEmailyPassword(email, password);
+            return Ok(usuarioService.GetByEmailyPassword(email, password));
         }
 
         [HttpGet, Route("/api/usuario/")]
