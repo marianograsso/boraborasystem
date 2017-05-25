@@ -3,6 +3,7 @@ using BlogDeFavores.Interfaces;
 using BlogDeFavores.Models;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace BlogDeFavores.Controllers
 {
@@ -21,6 +22,16 @@ namespace BlogDeFavores.Controllers
             return Ok(usuarioService.GetByEmailyPassword(email, password));
         }
 
+        [HttpGet, Route("/api/usuario/validatemail/{email}")]
+        public string ValidateEmail(string email)
+        {
+            if (usuarioService.ValidateEmail(email))
+            {
+                return "Usuario registrado con exito";
+            }
+            return "El Email ya esta en uso";
+        }
+
         [HttpGet, Route("/api/usuario/")]
         public string GetUsuario()
         {
@@ -28,9 +39,13 @@ namespace BlogDeFavores.Controllers
         }
 
         [HttpPost, Route("/api/usuario")]
-        public Usuario RegistrarUsuario([FromBody] Usuario usuario)
+        public IActionResult RegistrarUsuario([FromBody] Usuario usuario)
         {
-            return usuarioService.Registrar(usuario);
+            if (ModelState.IsValid)
+            {
+                return Ok(usuarioService.Registrar(usuario));
+            }
+            return BadRequest();
         }
 
         [HttpDelete, Route("/api/usuario/{id}")]

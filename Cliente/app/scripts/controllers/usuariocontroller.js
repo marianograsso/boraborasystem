@@ -8,24 +8,35 @@
  * Controller of the clienteApp
  */
 angular.module('clienteApp')
-  .controller('UsuariocontrollerCtrl', function ($scope, usuarioService, $rootScope) {
+  .controller('UsuariocontrollerCtrl', function ($scope, usuarioService, $rootScope, $window) {
+    $scope.error = false; 
     $rootScope.usuarioOn = false;
     $rootScope.usuarioOff = true;
 
     $scope.registrar = function (usuario) {
-      usuarioService.registrarUsuario(createUser(usuario))
-        .then(function (vals) {
-          // aca iria el usuario
-        }, function (error) {
-          console.error("Error", error)
-        })
+      usuarioService.validateEmail(usuario.email).then(function (vals) {
+        var txt = vals;
+        if (vals.data == "Usuario registrado con exito") {
+          usuarioService.registrarUsuario(createUser(usuario))
+            .then(function (vals) {
+              $window.location.href = "#!/";
+            })
+        }
+        else {
+          $scope.errormessage = vals.data;
+          $scope.error = true;         
+        }
+      })
     };
+
+
     $scope.loguear = function () {
       usuarioService.getUsuario($scope.email, $scope.password)
         .then(function (vals) {
           $rootScope.usuario = vals.data;
           $rootScope.usuarioOn = true;
           $rootScope.usuarioOff = false;
+          $window.location.href = "#!/";
         }, function (error) {
           console.error("Error", error)
         })

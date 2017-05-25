@@ -1,4 +1,4 @@
-<div ng-controller="UsuariocontrollerCtrl" class="container">
+<div name="myForm" ng-controller="UsuariocontrollerCtrl" class="container">
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -6,19 +6,19 @@
       </div>
     </div>
     <div class="jumbotron">
-      <form class="form-horizontal">
+      <form name="myForm" class="form-horizontal">
         <div class="form-group">
           <label class="col-md-4 control-label" for="Name">Nombre</label>
-          <div name="myForm" class="col-md-6">
-            <input ng-model="usuario.nombre" name="Name" type="text" placeholder="Nombre" class="form-control input-md" >
+          <div class="col-md-6">
+            <input ng-model="usuario.nombre" name="Name" type="text" placeholder="Nombre" class="form-control input-md">
 
           </div>
         </div>
 
         <div class="form-group">
           <label class="col-md-4 control-label" for="Name">Apellido</label>
-          <div name="myForm" class="col-md-6">
-            <input ng-model="usuario.apellido" name="Apellido" type="text" placeholder="Apellido" class="form-control input-md" >
+          <div class="col-md-6">
+            <input ng-model="usuario.apellido" name="Apellido" type="text" placeholder="Apellido" class="form-control input-md">
 
           </div>
         </div>
@@ -26,13 +26,14 @@
         <!-- Text input-->
         <div class="form-group">
           <label class="col-md-4 control-label" for="User Id">Telefono</label>
-          <div name="myForm" class="col-md-6">
-            <input ng-model="usuario.telefono" name="telefono" type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57" placeholder="telefono" class="form-control input-md" required="">
+          <div class="col-md-6">
+            <input ng-model="usuario.telefono" name="telefono" type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+              placeholder="telefono" class="form-control input-md" required="">
 
           </div>
         </div>
-         
-         <!-- 
+
+        <!-- 
         <div class="form-group">
           <label class="col-md-4 control-label" for="User Id">Avatar</label>
           <div class="col-md-6">
@@ -44,7 +45,7 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="User Name">Email</label>
           <div class="col-md-6">
-            <div name="myForm" class="input-group input-group-sm">
+            <div class="input-group input-group-sm">
               <span class="input-group-addon" id="sizing-addon1">@</span>
               <input ng-model="usuario.email" type="email" class="form-control" placeholder="Email" aria-describedby="sizing-addon1" required="">
               <span ng-show="myForm.email.$error.required" class="help-block">Por favor ingrese su email</span>
@@ -57,7 +58,8 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="Password">Password</label>
           <div class="col-md-6">
-            <input ng-model="usuario.password" name="Password" type="password" placeholder="Password" class="form-control input-md" required="" ng-min="6" >
+            <input ng-model="usuario.password" name="Password" type="password" placeholder="Password" class="form-control input-md" required=""
+              ng-min="6">
           </div>
         </div>
 
@@ -69,6 +71,10 @@
           <div class="col-md-4">
             <button ng-disabled="myForm.$invalid" ng-click="registrar(usuario)" name="" class="btn btn-success">Registrar</button>
           </div>
+        </div>
+
+        <div ng-show="error == true" ng-model="errormessage" class="alert alert-danger">
+          <strong>Error!</strong> {{ errormessage }}
         </div>
 
       </form>

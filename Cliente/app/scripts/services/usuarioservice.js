@@ -24,5 +24,8 @@ angular.module('clienteApp')
     service.updateUsuario = function(usuario){
       return $http.put(url + "/" + usuario.id, usuario);
     }
+    service.validateEmail = function(email){
+      return $http.get(url + "/validatemail/" + email);
+    }
     return service;
   });

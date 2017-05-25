@@ -3,6 +3,7 @@ using System.Linq;
 using System.Runtime.InteropServices.ComTypes;
 using BlogDeFavores.Interfaces;
 using BlogDeFavores.Models;
+using Microsoft.EntityFrameworkCore.ChangeTracking.Internal;
 
 namespace BlogDeFavores.Dao
 {
@@ -49,6 +50,17 @@ namespace BlogDeFavores.Dao
         public Usuario GetByEmailyPassword(string email, string password)
         {
             return context.Usuarios.FirstOrDefault(x => x.Email == email && x.Password == password);
+        }
+
+        public bool ValidateEmail(string email)
+        {
+            var valor = context.Usuarios.FirstOrDefault(x => x.Email == email);
+            // si no me trajo nada, es porque no existe ese usuario
+            if (valor == null)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

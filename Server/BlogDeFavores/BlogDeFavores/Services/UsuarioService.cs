@@ -37,5 +37,10 @@ namespace BlogDeFavores.Services
         {
             return usuarioDao.GetByEmailyPassword(email, password);
         }
+
+        public bool ValidateEmail(string email)
+        {
+            return usuarioDao.ValidateEmail(email);
+        }
     }
 }

@@ -10,5 +10,6 @@ namespace BlogDeFavores.Interfaces
         void Eliminar(Guid id);
         void Editar(Guid id, Usuario usuario);
         Usuario GetByEmailyPassword(string email, string password);
+        bool ValidateEmail(string email);
     }
 }
