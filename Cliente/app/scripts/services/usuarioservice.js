@@ -11,6 +11,7 @@ angular.module('clienteApp')
   .service('usuarioService', function ($http) {
     var url = 'http://localhost:57875/api/usuario';
     var service = {};
+    
     service.registrarUsuario = function(usuario){
       var result = $http.post(url, usuario);
       return result;
