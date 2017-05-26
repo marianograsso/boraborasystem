@@ -46,6 +46,8 @@ namespace BlogDeFavores
             services.AddSingleton<IGauchadaDao, GauchadaDao>();
             services.AddSingleton<IUsuarioService, UsuarioService>();
             services.AddSingleton<IUsuarioDao, UsuarioDao>();
+            services.AddSingleton<IComprasService, CompraService>();
+            services.AddSingleton<IComprasDao, ComprasDao>();
 
             services.AddMvc();
             services.Configure<MvcOptions>(options =>

@@ -15,9 +15,13 @@ namespace BlogDeFavores.Controllers
         }
 
         [HttpPost, Route("/api/gauchada")]
-        public Gauchada RegistrarGauchada([FromBody] Gauchada gauchada)
+        public IActionResult RegistrarGauchada([FromBody] Gauchada gauchada)
         {
-            return gauchadasService.Registrar(gauchada);
+            if (ModelState.IsValid)
+            {
+                return Ok(gauchadasService.Registrar(gauchada));
+            }
+            return BadRequest();
         }
 
         [HttpDelete, Route("/api/gauchada/{id}")]

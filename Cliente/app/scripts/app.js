@@ -29,6 +29,14 @@ angular
         controller: 'AboutCtrl',
         controllerAs: 'about'
       })
+      .when('/comprar', {
+        templateUrl: 'views/comprar.html',
+        controller: 'ComprascontrollerCtrl',
+      })
+      .when('/pagar', {
+        templateUrl: 'views/pagar.html',
+        controller: 'ComprascontrollerCtrl',
+      })
       .when('/registrarusuario', {
         templateUrl: 'views/registrarusuario.html',
         controller: 'UsuariocontrollerCtrl',

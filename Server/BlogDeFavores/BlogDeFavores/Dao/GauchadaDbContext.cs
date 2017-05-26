@@ -7,6 +7,7 @@ namespace BlogDeFavores.Dao
     {
         public DbSet<Gauchada> Gauchadas { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<Compras> Compras { get; set; }
 
         public GauchadaDbContext(DbContextOptions<GauchadaDbContext> options) : base(options)
         {
@@ -17,7 +18,7 @@ namespace BlogDeFavores.Dao
         {
             modelBuilder.Entity<Gauchada>().ToTable("Gauchada");
             modelBuilder.Entity<Usuario>().ToTable("Usuario");
-
+            modelBuilder.Entity<Compras>().ToTable("Compras");
         }
 
     }

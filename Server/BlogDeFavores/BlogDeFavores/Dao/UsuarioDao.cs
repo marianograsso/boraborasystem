@@ -18,7 +18,13 @@ namespace BlogDeFavores.Dao
 
         public Usuario Registrar(Usuario usuario)
         {
+            usuario.Avatar = @"\images\soy_especial";
+            //usuario.Categoria = new Categoria()
+            //{
+                
+            //};
             context.Usuarios.Add(usuario);
+            
             context.SaveChanges();
             return usuario;
         }
