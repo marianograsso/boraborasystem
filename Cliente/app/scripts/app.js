@@ -21,7 +21,7 @@ angular
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
+        controller: 'GauchadacontrollerCtrl',
         controllerAs: 'main'
       })
       .when('/about', {
@@ -33,6 +33,11 @@ angular
         templateUrl: 'views/comprar.html',
         controller: 'ComprascontrollerCtrl',
       })
+      .when('/publicar', {
+        templateUrl: 'views/publicargauchada.html',
+        controller: 'GauchadacontrollerCtrl',
+      })
+      
       .when('/pagar', {
         templateUrl: 'views/pagar.html',
         controller: 'ComprascontrollerCtrl',

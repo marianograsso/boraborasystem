@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using BlogDeFavores.Interfaces;
 using BlogDeFavores.Models;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace BlogDeFavores.Controllers
 {
@@ -41,5 +43,12 @@ namespace BlogDeFavores.Controllers
         {
             gauchadasService.GetById(id);
         }
+
+        [HttpGet, Route("/api/gauchada/")]
+        public IActionResult GetGauchadas()
+        {
+            return Ok(gauchadasService.GetAll());
+        }
+
     }
 }

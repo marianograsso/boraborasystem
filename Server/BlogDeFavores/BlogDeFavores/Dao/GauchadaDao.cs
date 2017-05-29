@@ -53,5 +53,10 @@ namespace BlogDeFavores.Dao
             context.Gauchadas.Update(gauch);
             context.SaveChanges();
         }
+
+        public List<Gauchada> GetAll()
+        {
+            return context.Gauchadas.ToList();
+        }
     }
 }

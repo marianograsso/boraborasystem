@@ -9,7 +9,7 @@
  */
 angular.module('clienteApp')
   .controller('UsuariocontrollerCtrl', function ($scope, usuarioService, $rootScope, $window) {
-    $scope.error = false; 
+    $scope.error = false;
     $rootScope.usuarioOn = false;
     $rootScope.usuarioOff = true;
 
@@ -24,7 +24,7 @@ angular.module('clienteApp')
         }
         else {
           $scope.errormessage = vals.data;
-          $scope.error = true;         
+          $scope.error = true;
         }
       })
     };
@@ -33,10 +33,17 @@ angular.module('clienteApp')
     $scope.loguear = function () {
       usuarioService.getUsuario($scope.email, $scope.password)
         .then(function (vals) {
-          $rootScope.usuario = vals.data;
-          $rootScope.usuarioOn = true;
-          $rootScope.usuarioOff = false;
-          $window.location.href = "#!/";
+          if (vals.data == "") {
+            alert("Usuario o contraseña no válido");
+            sleep(1000);
+          }
+          else {
+            $rootScope.usuario = vals.data;
+            $rootScope.usuarioOn = true;
+            $rootScope.usuarioOff = false;
+            $window.location.href = "#!/";
+          }
+
         }, function (error) {
           console.error("Error", error)
         })

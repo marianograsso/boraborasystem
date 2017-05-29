@@ -39,10 +39,16 @@ angular.module('clienteApp')
 
       comprasService.comprar(compra)
         .then(function (vals) {
-          var txt = vals;
-          alert("Compra realizada con exito");
-          sleep(3000);
-          $window.location.href = "#!/";
+          var status = vals.status;
+          if (status == 200) {
+            alert("Compra realizada con exito");
+            sleep(3000);
+            $window.location.href = "#!/";
+          }
+          else{
+            alert("Faltan completar campos");
+          }
+
         });
     }
 

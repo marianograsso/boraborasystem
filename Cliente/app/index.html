@@ -30,7 +30,7 @@
       </div>
       <ul class="nav navbar-nav">
         <li class="active"><a href="#/">Home</a></li>
-        <li><a ng-href="#!/registrarusuario">Registrarse</a></li>
+        <li><a ng-hide="usuarioOn == true" ng-href="#!/registrarusuario">Registrarse</a></li>
         <li><a ng-hide="usuarioOn == true" ng-href="#!/iniciarsesion">Iniciar Sesion</a></li>
         <li class="dropdown" ng-hide="usuarioOn == false">
           <a class="dropdown-toggle" data-toggle="dropdown"> {{ usuario.nombre }} <span class="caret"></span></a>

@@ -43,5 +43,10 @@ namespace BlogDeFavores.Services
         {
             _gauchadaDao.Editar(id, gauchada);
         }
+
+        public List<Gauchada> GetAll()
+        {
+            return _gauchadaDao.GetAll();
+        }
     }
 }

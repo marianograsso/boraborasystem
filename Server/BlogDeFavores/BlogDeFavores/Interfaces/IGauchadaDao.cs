@@ -12,5 +12,6 @@ namespace BlogDeFavores.Interfaces
         Gauchada Registrar(Gauchada gauchada);
         void Eliminar(Guid id);
         void Editar(Guid id, Gauchada gauchada);
+        List<Gauchada> GetAll();
     }
 }

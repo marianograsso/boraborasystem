@@ -1,0 +1,70 @@
+<div ng-show="usuario.id != null" name="form" ng-controller="GauchadacontrollerCtrl" class="container">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand">Publicar Gauchada</a>
+      </div>
+    </div>
+    <form name="form" class="form-horizontal">
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="Name">Titulo <span ng-show="form.description.$error.required">*</span></label>
+        <div class="col-md-6">
+          <input ng-model="gauchada.titulo" name="Titulo" type="text" placeholder="Titulo" class="form-control input-md" required="">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="Name">Tipo <span ng-show="form.description.$error.required">*</span></label>
+        <div class="col-md-6">
+          <input ng-model="gauchada.tipo" name="Tipo" type="text" placeholder="Tipo" class="form-control input-md" required="">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="Name">Localidad <span ng-show="form.description.$error.required">*</span></label>
+        <div class="col-md-6">
+          <input ng-model="gauchada.localidad" name="Tipo" type="text" placeholder="Localidad" class="form-control input-md" required="">
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="User Id">Fecha límite</label>
+        <div class="col-md-6">
+          <input ng-model="gauchada.fechalimite" name="fechalimite" type="date" min="{{fecha}}" class="form-control" required="">
+          <span ng-show="form.fechalimite.$error.min">La fecha limite no deberia ser menor a la actual</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="User Name">Descripcion <span ng-show="form.description.$error.required">*</span></label>
+
+        <div class="col-md-6">
+          <div class="input-group input-group-sm">
+            <textarea ng-model="gauchada.descripcion" name="description" class="form-control" placeholder="Descripcion" aria-describedby="sizing-addon1"
+              required=""></textarea>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4 control-label" for=""></label>
+        <div class="col-md-4">
+          <button ng-disabled="form.$invalid" ng-click="publicarGauchada(gauchada)" name="" class="btn btn-success">Publicar Gauchada</button>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <h6>Los campos con "*" son requeridos</h6>
+      </div>
+      
+      <div ng-show="error" ng-model="errormessage" class="alert alert-danger">
+        <strong>Error!</strong> {{ errormessage }}
+      </div>
+    </form>
+</div>
+
+ <div ng-show="usuario.id == null" class="alert alert-danger">
+        <strong>Error!</strong> el usuario no esta logueado
+</div>
