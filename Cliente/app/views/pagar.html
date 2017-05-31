@@ -52,26 +52,37 @@ THE SOFTWARE.
                                 <div class="form-group">
                                     <label for="cardNumber">NUMERO DE TARJETA</label>
                                     <div class="input-group">
-                                        <input type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57" class="form-control" name="cardNumber"
-                                            placeholder="Numero de tarjeta valido" ng-minlength="16" maxlength="16" autocomplete="cc-number"
-                                            required autofocus />
+                                        <input ng-model="pago.tarjeta" type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57" class="form-control" name="cardNumber"
+                                            placeholder="Numero de tarjeta valido" ng-minLength="16" maxlength="16" autocomplete="cc-number"
+                                            required />
                                         <span class="input-group-addon"><i class="fa fa-credit-card"></i></span>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        
                         <div class="row">
                             <div class="col-xs-7 col-md-7">
                                 <div class="form-group">
                                     <label for="cardExpiry"><span class="hidden-xs">VALIDA</span><span class="visible-xs-inline">EXP</span> HASTA</label>
                                     <input type="date" class="form-control" name="cardExpiry" placeholder="MM / YY" autocomplete="cc-exp" required />
+                                        ng-model="pago.fecha"
                                 </div>
                             </div>
                             <div class="col-xs-5 col-md-5 pull-right">
                                 <div class="form-group">
                                     <label for="cardCVC">CODIGO SEGURIDAD</label>
                                     <input type="tel" class="form-control" name="cardCVC" placeholder="CVC" autocomplete="cc-csc" ng-minlength="3" maxlength="3"
-                                        onkeypress="return event.charCode >= 48 && event.charCode <= 57" required />
+                                        ng-model="pago.codigoSeg"
+                                        type="tel" 
+                                        class="form-control"
+                                        name="cardCVC" 
+                                        placeholder="CVC" 
+                                        autocomplete="cc-csc" 
+                                        ng-minLength="3" 
+                                        maxlength="3"
+                                        onkeypress="return event.charCode >= 48 && event.charCode <= 57" 
+                                        required />
                                 </div>
                             </div>
                         </div>

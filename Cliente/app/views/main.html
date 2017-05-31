@@ -1,20 +1,20 @@
 <div class="container">
     <div id="blog" class="row">
 
-        <div class="col-sm-2 paddingTop20">
+        <div class="col-sm-2 paddingTop20" ng-hide="usuarioOn == false">
             <nav class="nav-sidebar" >
                 <ul class="nav">
-                    <li ng-hide="usuarioOn == false" class style="background-color: #f4ca5d"><a ng-href="#!/comprar">
+                    <li class style="background-color: #f4ca5d"><a ng-href="#!/comprar">
                         <span class="glyphicon glyphicon-star"></span>
                         <span class="glyphicon glyphicon-star"></span>
                         <span class="glyphicon glyphicon-star"></span>
                         Comprar Creditos</a></li>
-                    <li ng-hide="usuarioOn == false"><a ng-href="#!/publicar">Publicar gauchada</a></li>
+                    <li><a ng-href="#!/publicar">Publicar gauchada</a></li>
                     <li class="nav-divider"></li>
                 </ul>
             </nav>
         </div>
-        <div class="col-md-10 blogShort">
+        <div class="col-md-10 blogShort" ng-hide="gauchada.titulo == null">
             <div ng-repeat="gauchada in gauchadas">
             <img src="{{ gauchada.imagen }}" alt="post img" class="" style="width:400px;height:400px">
             <h1>{{ gauchada.titulo }}</h1>
