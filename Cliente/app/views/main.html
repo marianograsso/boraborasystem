@@ -1,3 +1,5 @@
+
+
 <div class="container">
     <div id="blog" class="row">
 
@@ -18,19 +20,20 @@
         <div class="col-md-10 blogShort">
             <div class="well" ng-repeat="gauchada in gauchadas">
                 <div class="media">
-                    <a class="pull-left" href="#">
-                        <img class="media-object" alt="post img" src="{{ gauchada.imagen }}">
+                    <a class="pull-left">
+                        <img class="media-object" ng-src="{{ gauchada.imagen }}">
                     </a>
                     <div class="media-body">
                         <h4 class="media-heading">{{ gauchada.titulo }}</h4>
-                        <p class="text-right">By {{ gauchada.AutorID.nombre }}</p>
+                        <p class="text-right"> 
+                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{ gauchada.autor }}</p>
                         <p>{{ gauchada.descripcion }}</p>
                         <ul class="list-inline list-unstyled">
                             <li><span><i class="glyphicon glyphicon-calendar"></i> Iniciado: {{ gauchada.fechaInicio | date: 'dd-MM-yyyy' }} </span></li>
                             <li>|</li>
                             <span></i> Fecha limite: {{ gauchada.fechaFin | date: 'dd-MM-yyyy' }}</span>
                             <br>
-                            <a class="btn btn-blog pull-right marginBottom10" href="#!/vergauchada">VER MAS</a>
+                            <a class="btn btn-blog pull-right marginBottom10" ng-click="verGauchada(gauchada)" href="#!/vergauchada">VER MAS</a>
                         </ul>
                     </div>
                 </div>

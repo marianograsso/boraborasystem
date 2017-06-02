@@ -44,6 +44,7 @@ namespace BlogDeFavores.Dao
             user.Avatar = usuario.Avatar;
             user.Telefono = usuario.Telefono;
             user.Password = usuario.Password;
+            user.Credito = usuario.Credito;
             context.Usuarios.Update(user);
             context.SaveChanges();
         }

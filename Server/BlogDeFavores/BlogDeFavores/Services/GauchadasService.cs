@@ -14,9 +14,9 @@ namespace BlogDeFavores.Services
             _gauchadaDao = gauchadaDao;
         }
 
-        public void GetById(Guid id)
+        public Gauchada GetById(Guid id)
         {
-            _gauchadaDao.GetById(id);
+            return _gauchadaDao.GetById(id);
         }
 
         public List<Gauchada> GetByAutor(Guid id)

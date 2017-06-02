@@ -17,6 +17,7 @@ angular.module('clienteApp')
       usuarioService.validateEmail(usuario.email).then(function (vals) {
         var txt = vals;
         if (vals.data == "Usuario registrado con exito") {
+          usuario.credito = 0;
           usuarioService.registrarUsuario(createUser(usuario))
             .then(function (vals) {
               $window.location.href = "#!/";
@@ -51,6 +52,7 @@ angular.module('clienteApp')
     };
 
     $scope.cerrarSesion = function () {
+      usuarioService.updateUsuario($rootScope.usuario).then(function (vals) {});
       $rootScope.usuario = {};
       $rootScope.usuarioOn = false;
       $rootScope.usuarioOff = true;
@@ -64,6 +66,7 @@ angular.module('clienteApp')
         Password: usuario.password,
         Telefono: usuario.telefono,
         Avatar: usuario.avatar,
+        Credito: usuario.credito,
       };
       return usuario;
     };

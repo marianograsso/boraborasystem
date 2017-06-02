@@ -55,7 +55,7 @@ namespace BlogDeFavores.Controllers
         }
 
         [HttpPut, Route("/api/usuario/{id}")]
-        public void UpdateUpdate(Guid id, [FromBody] Usuario usuario)
+        public void UpdateUsuario(Guid id, [FromBody] Usuario usuario)
         {
             usuarioService.Editar(id, usuario);
         }

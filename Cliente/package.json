@@ -41,6 +41,7 @@
     "test": "karma start test\\karma.conf.js"
   },
   "dependencies": {
-    "@ng-bootstrap/ng-bootstrap": "^1.0.0-alpha.26"
+    "@ng-bootstrap/ng-bootstrap": "^1.0.0-alpha.26",
+    "ngUpload": "^0.5.20"
   }
 }

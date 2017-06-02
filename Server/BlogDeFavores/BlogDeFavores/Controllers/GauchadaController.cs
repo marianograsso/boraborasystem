@@ -39,9 +39,9 @@ namespace BlogDeFavores.Controllers
         }
 
         [HttpGet, Route("/api/gauchada/{id}")]
-        public void GetGauchada(Guid id)
+        public IActionResult GetGauchada(Guid id)
         {
-            gauchadasService.GetById(id);
+            return Ok(gauchadasService.GetById(id));
         }
 
         [HttpGet, Route("/api/gauchada/")]

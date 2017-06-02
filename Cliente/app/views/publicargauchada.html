@@ -1,8 +1,10 @@
+<script src="/js/ng-upload.js"></script>
+
 <div ng-show="usuario.id != null" name="form" ng-controller="GauchadacontrollerCtrl" class="container">
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand">Publicar Gauchada</a>
+        <a class="navbar-brand">Publicar Gauchada - Cantidad de creditos disponibles: {{usuario.credito}}</a>
       </div>
     </div>
     <form name="form" class="form-horizontal">
@@ -23,10 +25,16 @@
       <div class="form-group">
         <label class="col-md-4 control-label" for="Name">Localidad <span ng-show="form.description.$error.required">*</span></label>
         <div class="col-md-6">
-          <input ng-model="gauchada.Localidad" name="Tipo" type="text" placeholder="Localidad" class="form-control input-md" required="">
+          <input ng-model="gauchada.Localidad" name="Localidad" type="text" placeholder="Localidad" class="form-control input-md" required="">
         </div>
       </div>
 
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="Name">Imagen</label>
+        <div class="col-md-6">
+          <input id="myFile" ng-model="gauchada.Imagen" name="Imagen" type="file">
+        </div>
+      </div>
 
       <div class="form-group">
         <label class="col-md-4 control-label" for="User Id">Fecha límite</label>
@@ -43,7 +51,6 @@
           <div class="input-group input-group-sm">
             <textarea ng-model="gauchada.Descripcion" name="description" class="form-control" placeholder="Descripcion" aria-describedby="sizing-addon1"
               required=""></textarea>
-
           </div>
         </div>
       </div>
@@ -58,13 +65,17 @@
       <div class="col-md-4">
         <h6>Los campos con "*" son requeridos</h6>
       </div>
-      
-      <div ng-show="error" ng-model="errormessage" class="alert alert-danger">
-        <strong>Error!</strong> {{ errormessage }}
-      </div>
-    </form>
-</div>
 
- <div ng-show="usuario.id == null" class="alert alert-danger">
-        <strong>Error!</strong> el usuario no esta logueado
+    </form>
+
+    <br>
+    <br>
+    <br>
+
+    <div ng-show="error" ng-model="errormessage" class="alert alert-danger">
+      <strong>Error!</strong> {{ errormessage }}
+    </div>
+
+    
+
 </div>

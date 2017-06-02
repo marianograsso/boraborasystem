@@ -1,21 +1,18 @@
-<div class="col-md-12 blogShort">
+<div ng-controller="GauchadacontrollerCtrl" class="col-md-12 blogShort">
     <div class="well">
         <div class="media">
             <div class="post-img-content">
-                <img src="../images/soy_especial.jpg" class="img-responsive" alt="post img" style="width:630px;height:400px" />
+                <img ng-src="{{ gauchadaActual.imagen }}" class="img-responsive" alt="post img" style="width:630px;height:400px" />
             </div>
             <br>
             <div class="media-body">
-                <h4 class="media-heading">TITULO DE LA GAUCHADA</h4>
-                <p class="text-right">By AUTOR DE LA GAUCHADA</p>
-                <p>ACA VA LA DESCRIPCION: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam
-                    sit amet vulputate. Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean
-                    sit amet felis dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor
-                    accumsan. Aliquam in felis sit amet augue.</p>
+                <h4 class="media-heading">{{ gauchadaActual.titulo }}</h4>
+                <p class="text-right"></p>
+                <p>{{ gauchadaActual.descripcion }}</p>
                 <ul class="list-inline list-unstyled">
-                    <li><span><i class="glyphicon glyphicon-calendar"></i> Iniciado: "fechaInicio de la gauchada" </span></li>
+                    <li><span><i class="glyphicon glyphicon-calendar"></i> Iniciado: {{ gauchadaActual.fechaInicio | date: 'dd-MM-yyyy' }} </span></li>
                     <li>|</li>
-                    <span></i> Fecha limite: "fechaFin de la gauchada"</span>
+                    <span></i> Fecha limite: {{ gauchadaActual.fechaFin | date: 'dd-MM-yyyy' }}</span>
                 </ul>
             </div>
         </div>

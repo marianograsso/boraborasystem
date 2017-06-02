@@ -8,7 +8,8 @@
  * Controller of the clienteApp
  */
 angular.module('clienteApp')
-  .controller('GauchadacontrollerCtrl', function ($scope, $rootScope, gauchadaservice, $window) {
+  .controller('GauchadacontrollerCtrl', function ($scope, $rootScope, gauchadaservice, $window, usuarioService) {
+    $rootScope.gauchadaActual = {};
     $scope.gauchada = {};
     $scope.errormessage = "";
     $scope.error = false;
@@ -17,26 +18,43 @@ angular.module('clienteApp')
       $scope.gauchadas = vals.data
     });
 
-
-    /*$scope.ver = function () {
-      $scope.tituloAct = $scope.gauchadas.titulo;
-      $scope.descAct = $scope.gauchadas.descAct;
-      $window.location.href = "http://localhost:9000/#!/gauchada";
-
-    }*/
     $scope.publicarGauchada = function (gauchada) {
       if ($scope.gauchada.FechaFin < $scope.fecha) {
         $scope.error = true;
         $scope.errormessage = "La fecha tiene que ser mayor o igual a la de hoy";
       }
       else {
-        $scope.gauchada.AutorId = $rootScope.usuario.id;
-        $scope.gauchada.FechaInicio = new Date();
-        gauchadaservice.registrarGauchada($scope.gauchada)
-          .then(function (vals) {
-            $window.location.href = "#!/";
-          })
+        if ($rootScope.usuario.credito < 1) {
+          $scope.error = true;
+          $scope.errormessage = "Creditos insuficientes";
+        }
+        else {
+          var x = document.getElementById("myFile")
+          if (x.value === ""){
+            $scope.gauchada.Imagen = "images/avatar.png"
+          }
+          else{
+            $scope.gauchada.Imagen = x.value;
+          }
+          
+          $rootScope.usuario.credito = $rootScope.usuario.credito - 1;
+          $scope.gauchada.AutorId = $rootScope.usuario.id;
+          $scope.gauchada.Autor = $rootScope.usuario.nombre;
+          $scope.gauchada.FechaInicio = new Date();
+          gauchadaservice.registrarGauchada($scope.gauchada)
+            .then(function (vals) {
+              $window.location.href = "#!/";
+            })
+          
+        }
       }
     };
+
+    $scope.verGauchada = function (gauchada){
+      gauchadaservice.getGauchada(gauchada)
+            .then(function (vals) {
+              $rootScope.gauchadaActual = vals.data;
+            })
+    }
 
   });
