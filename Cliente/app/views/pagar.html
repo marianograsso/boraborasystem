@@ -40,7 +40,7 @@ THE SOFTWARE.
                 <div class="panel panel-default credit-card-box">
                     <div class="panel-heading display-table">
                         <div class="row display-tr">
-                            <h3 class="panel-title display-td" style="text-align:center">DETALLES DE PAGO {{ cantidadFinal }} {{ precioFinal }}</h3>
+                            <h3 class="panel-title display-td" style="text-align:center">DETALLES DE PAGO</h3>
                             <div class="display-td">
                                 <img class="img-responsive" style="margin: 0 auto" src="http://i76.imgup.net/accepted_c22e0.png">
                             </div>
@@ -52,36 +52,30 @@ THE SOFTWARE.
                                 <div class="form-group">
                                     <label for="cardNumber">NUMERO DE TARJETA</label>
                                     <div class="input-group">
-                                        <input ng-model="pago.tarjeta" type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57" class="form-control" name="cardNumber"
-                                            placeholder="Numero de tarjeta valido" ng-minLength="16" maxlength="16" autocomplete="cc-number"
-                                            required />
+                                        <input ng-model="pago.tarjeta" type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57" class="form-control"
+                                            name="cardNumber" placeholder="Numero de tarjeta valido" ng-minLength="16" maxlength="16"
+                                            autocomplete="cc-number" required />
                                         <span class="input-group-addon"><i class="fa fa-credit-card"></i></span>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="row">
                             <div class="col-xs-7 col-md-7">
                                 <div class="form-group">
                                     <label for="cardExpiry"><span class="hidden-xs">VALIDA</span><span class="visible-xs-inline">EXP</span> HASTA</label>
-                                    <input type="date" class="form-control" name="cardExpiry" placeholder="MM / YY" autocomplete="cc-exp" required />
-                                        ng-model="pago.fecha"
+                                    <input ng-model="pago.fecha" type="date" min="{{fecha}}" class="form-control" name="cardExpiry" placeholder="MM / YY" autocomplete="cc-exp"
+                                        required />
+                                    <span ng-show="pagosForm.cardExpiry.$error.min">La fecha de expiracion no puede haber pasado!</span>
                                 </div>
                             </div>
                             <div class="col-xs-5 col-md-5 pull-right">
                                 <div class="form-group">
                                     <label for="cardCVC">CODIGO SEGURIDAD</label>
                                     <input type="tel" class="form-control" name="cardCVC" placeholder="CVC" autocomplete="cc-csc" ng-minlength="3" maxlength="3"
-                                        ng-model="pago.codigoSeg"
-                                        type="tel" 
-                                        class="form-control"
-                                        name="cardCVC" 
-                                        placeholder="CVC" 
-                                        autocomplete="cc-csc" 
-                                        ng-minLength="3" 
-                                        maxlength="3"
-                                        onkeypress="return event.charCode >= 48 && event.charCode <= 57" 
+                                        ng-model="pago.codigoSeg" type="tel" class="form-control" name="cardCVC" placeholder="CVC"
+                                        autocomplete="cc-csc" ng-minLength="3" maxlength="3" onkeypress="return event.charCode >= 48 && event.charCode <= 57"
                                         required />
                                 </div>
                             </div>
@@ -91,8 +85,13 @@ THE SOFTWARE.
                                 <button ng-disabled="pagosForm.$invalid" ng-click="pagar(cantidadFinal, precioFinal)" id="btnPagar" runat="server" class="btn btn-default"
                                     style="width: 100%;background-color: #f4ca5d">
                         PAGAR</button>
+                                <p></p>
+                                <div ng-show="error" ng-model="errormessage" class="alert alert-danger">
+                                    <strong>Error!</strong> {{ errormessage }}
+                                </div>
                             </div>
                         </div>
+    
                         <div class="row" style="display:none;">
                             <div class="col-xs-12">
                                 <p class="payment-errors"></p>

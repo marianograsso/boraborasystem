@@ -2,30 +2,38 @@
     <div id="blog" class="row">
 
         <div class="col-sm-2 paddingTop20" ng-hide="usuarioOn == false">
-            <nav class="nav-sidebar" >
+            <nav class="nav-sidebar">
                 <ul class="nav">
-                    <li class style="background-color: #f4ca5d"><a ng-href="#!/comprar">
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star"></span>
-                        Comprar Creditos</a></li>
+                    <li class style="background-color: #f4ca5d">
+                        <a ng-href="#!/comprar">
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span> Comprar Creditos</a>
+                    </li>
                     <li><a ng-href="#!/publicar">Publicar gauchada</a></li>
                     <li class="nav-divider"></li>
                 </ul>
             </nav>
         </div>
-        <div class="col-md-10 blogShort" ng-hide="gauchada.titulo == null">
-            <div ng-repeat="gauchada in gauchadas">
-            <img src="{{ gauchada.imagen }}" alt="post img" class="" style="width:400px;height:400px">
-            <h1>{{ gauchada.titulo }}</h1>
-            <article>
-                <p>
-                    {{ gauchada.descripcion }}
-                </p>
-            </article>
-            <a class="btn btn-blog marginBottom10" style="width: 100px"ng-click="ver()">Ver</a>
-            <br><br>
-            <hr>
+        <div class="col-md-10 blogShort">
+            <div class="well" ng-repeat="gauchada in gauchadas">
+                <div class="media">
+                    <a class="pull-left" href="#">
+                        <img class="media-object" alt="post img" src="{{ gauchada.imagen }}">
+                    </a>
+                    <div class="media-body">
+                        <h4 class="media-heading">{{ gauchada.titulo }}</h4>
+                        <p class="text-right">By {{ gauchada.AutorID.nombre }}</p>
+                        <p>{{ gauchada.descripcion }}</p>
+                        <ul class="list-inline list-unstyled">
+                            <li><span><i class="glyphicon glyphicon-calendar"></i> Iniciado: {{ gauchada.fechaInicio | date: 'dd-MM-yyyy' }} </span></li>
+                            <li>|</li>
+                            <span></i> Fecha limite: {{ gauchada.fechaFin | date: 'dd-MM-yyyy' }}</span>
+                            <br>
+                            <a class="btn btn-blog pull-right marginBottom10" href="#!/vergauchada">VER MAS</a>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

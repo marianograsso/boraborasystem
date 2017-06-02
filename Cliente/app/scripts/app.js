@@ -24,11 +24,6 @@ angular
         controller: 'GauchadacontrollerCtrl',
         controllerAs: 'main'
       })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
-      })
       .when('/comprar', {
         templateUrl: 'views/comprar.html',
         controller: 'ComprascontrollerCtrl',
@@ -37,7 +32,6 @@ angular
         templateUrl: 'views/publicargauchada.html',
         controller: 'GauchadacontrollerCtrl',
       })
-      
       .when('/pagar', {
         templateUrl: 'views/pagar.html',
         controller: 'ComprascontrollerCtrl',
@@ -49,6 +43,10 @@ angular
       .when('/iniciarsesion', {
         templateUrl: 'views/iniciarsesion.html',
         controller: 'UsuariocontrollerCtrl',
+      })
+      .when('/vergauchada', {
+        templateUrl: 'views/vergauchada.html',
+        controller: 'GauchadacontrollerCtrl',
       })
       .otherwise({
         redirectTo: '/'

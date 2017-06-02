@@ -12,6 +12,9 @@ angular.module('clienteApp')
 
     $scope.cantidad = 1;
     $scope.precio = 10;
+    $scope.fecha = new Date();
+    $scope.error = false;
+    $scope.errormessage = "";
 
     $scope.comprar = function (cantidad) {
       $rootScope.cantidadFinal = cantidad;
@@ -34,23 +37,28 @@ angular.module('clienteApp')
       var compra = {
         CantCreditos: cantidadFinal,
         Precio: precioFinal,
-        IdComprador: id
+        IdComprador: id,
+        Fecha: new Date(),
       };
+      if ($scope.pago.tarjeta != 6666666666666666) {
+        comprasService.comprar(compra)
+          .then(function (vals) {
+            var status = vals.status;
+            if (status == 200) {
+              alert("Compra realizada con exito");
+              sleep(3000);
+              $window.location.href = "#!/";
+            }
+            else {
+              alert("Faltan completar campos");
+            }
 
-      comprasService.comprar(compra)
-        .then(function (vals) {
-          var status = vals.status;
-          if (status == 200) {
-            alert("Compra realizada con exito");
-            sleep(3000);
-            $window.location.href = "#!/";
-          }
-          else{
-            alert("Faltan completar campos");
-          }
-
-        });
+          });
+      }
+      else {
+        $scope.error = true;
+        $scope.errormessage = "La tarjeta no tiene saldo suficiente para realizar la compra";
+      }
     }
-
   });
 
