@@ -15,7 +15,7 @@ angular.module('clienteApp')
       var result = $http.post(url, gauchada);
       return result;
     }
-    service.getGauchada = function () {
+    service.getGauchada = function (gauchada) {
       return $http.get(url + "/" + gauchada.id);
     }
     service.deleteGauchada = function (gauchada) {
