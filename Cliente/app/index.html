@@ -33,9 +33,9 @@
         <li><a ng-hide="usuarioOn == true" ng-href="#!/registrarusuario">Registrarse</a></li>
         <li><a ng-hide="usuarioOn == true" ng-href="#!/iniciarsesion">Iniciar Sesion</a></li>
         <li class="dropdown" ng-hide="usuarioOn == false">
-          <a class="dropdown-toggle" data-toggle="dropdown"> {{ usuario.nombre }} <span class="caret"></span></a>
+          <a class="dropdown-toggle" data-toggle="dropdown"> {{ usuario.nombre }} ({{ usuario.credito }} creditos)<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li class=""><a href="/views/perfil.html/" class="">Ver Perfil <span class="pull-right glyphicon glyphicon-picture"></span></a></li>
+            <li ng-controller="PerfilcontrollerCtrl" ng-click="verUsuario(usuario.id)" class=""><a ng-href="#!/perfil">Ver Perfil <span class="pull-right glyphicon glyphicon-picture"></span></a></li>
             <li ng-click="cerrarSesion()" class=""><a href="#!/">Cerrar Sesion</a></li>
           </ul>
         </li>
@@ -87,6 +87,7 @@
   <script src="scripts/services/gauchadaservice.js"></script>
   <script src="scripts/controllers/comprascontroller.js"></script>
   <script src="scripts/services/comprasservice.js"></script>
+  <script src="scripts/controllers/perfilcontroller.js"></script>
   <!-- endbuild -->
 </body>
 

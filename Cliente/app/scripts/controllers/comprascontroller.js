@@ -17,7 +17,7 @@ angular.module('clienteApp')
     $scope.errormessage = "";
 
     $scope.comprar = function (cantidad) {
-      $rootScope.cantidadFinal = cantidad;
+      $rootScope.cantidadFinal = Number (cantidad);
       $rootScope.precioFinal = cantidad * $scope.precio;
       $window.location.href = "#!/pagar";
     }

@@ -81,7 +81,6 @@ angular.module('clienteApp')
       }
 
       r.readAsBinaryString(f);
-    }
-
+    };
 
   })

@@ -9,21 +9,21 @@
     </div>
     <form name="form" class="form-horizontal">
       <div class="form-group">
-        <label class="col-md-4 control-label" for="Name">Titulo <span ng-show="form.description.$error.required">*</span></label>
+        <label class="col-md-4 control-label" for="Name">Titulo <span ng-show="form.Titulo.$error.required">*</span></label>
         <div class="col-md-6">
           <input ng-model="gauchada.Titulo" name="Titulo" type="text" placeholder="Titulo" class="form-control input-md" required="">
         </div>
       </div>
 
       <div class="form-group">
-        <label class="col-md-4 control-label" for="Name">Tipo <span ng-show="form.description.$error.required">*</span></label>
+        <label class="col-md-4 control-label" for="Name">Tipo <span ng-show="form.Tipo.$error.required">*</span></label>
         <div class="col-md-6">
           <input ng-model="gauchada.Tipo" name="Tipo" type="text" placeholder="Tipo" class="form-control input-md" required="">
         </div>
       </div>
 
       <div class="form-group">
-        <label class="col-md-4 control-label" for="Name">Localidad <span ng-show="form.description.$error.required">*</span></label>
+        <label class="col-md-4 control-label" for="Name">Localidad <span ng-show="form.Localidad.$error.required">*</span></label>
         <div class="col-md-6">
           <input ng-model="gauchada.Localidad" name="Localidad" type="text" placeholder="Localidad" class="form-control input-md" required="">
         </div>
@@ -40,7 +40,7 @@
         <label class="col-md-4 control-label" for="User Id">Fecha límite</label>
         <div class="col-md-6">
           <input ng-model="gauchada.FechaFin" name="FechaFin" type="date" min="{{fecha}}" class="form-control" required="">
-          <span ng-show="form.fechalimite.$error.min">La fecha limite no deberia ser menor a la actual</span>
+          <span ng-show="form.FechaFin.$error.min">La fecha limite no deberia ser menor a la actual</span>
         </div>
       </div>
 

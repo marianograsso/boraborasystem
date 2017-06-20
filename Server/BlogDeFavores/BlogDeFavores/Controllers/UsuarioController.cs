@@ -22,6 +22,12 @@ namespace BlogDeFavores.Controllers
             return Ok(usuarioService.GetByEmailyPassword(email, password));
         }
 
+        [HttpGet, Route("/api/usuario/{id}")]
+        public IActionResult GetUsuarioActual(Guid id)
+        {
+            return Ok(usuarioService.GetById(id));
+        }
+
         [HttpGet, Route("/api/usuario/validatemail/{email}")]
         public string ValidateEmail(string email)
         {

@@ -48,6 +48,10 @@ angular
         templateUrl: 'views/vergauchada.html',
         controller: 'GauchadacontrollerCtrl',
       })
+      .when('/perfil', {
+        templateUrl: 'views/perfil.html',
+        controller: 'PerfilcontrollerCtrl',
+      })
       .otherwise({
         redirectTo: '/'
       });

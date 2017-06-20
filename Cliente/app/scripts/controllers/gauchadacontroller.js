@@ -9,6 +9,7 @@
  */
 angular.module('clienteApp')
   .controller('GauchadacontrollerCtrl', function ($scope, $rootScope, gauchadaservice, $window, usuarioService) {
+    $rootScope.usuarioActual = {};
     $rootScope.gauchadaActual = {};
     $scope.gauchada = {};
     $scope.errormessage = "";
@@ -55,6 +56,18 @@ angular.module('clienteApp')
             .then(function (vals) {
               $rootScope.gauchadaActual = vals.data;
             })
-    }
+    };
 
+    $scope.verPibe = function (usuarioId) {
+      if ($rootScope.usuarioOn == false){
+        alert("Se debe estar logueado para ver el perfil de un usuario!");
+      }
+      else {
+      usuarioService.getUsuarioActual(usuarioId)
+        .then(function (vals) {
+          $rootScope.usuarioActual = vals.data;
+          $window.location.href = "#!/perfil"
+        })
+      }  
+    }
   });

@@ -47,10 +47,11 @@
           <div class="col-md-6">
             <div class="input-group input-group-sm">
               <span class="input-group-addon" id="sizing-addon1">@</span>
-              <input ng-model="usuario.email" type="email" class="form-control" placeholder="Email" aria-describedby="sizing-addon1" required="">
-              <span ng-show="myForm.email.$error.required" class="help-block">Por favor ingrese su email</span>
-              <span ng-show="myForm.email.$error.email" class="help-block">Formato de email invalido</span>
+              <input ng-model="usuario.email" type="email" class="form-control" name="email" placeholder="Email" aria-describedby="sizing-addon1"
+                required="">
             </div>
+            <span ng-show="myForm.email.$error.required" class="help-block">Por favor ingrese su email</span>
+            <span ng-show="myForm.email.$error.email" class="help-block">Formato de email invalido</span>
           </div>
         </div>
 
