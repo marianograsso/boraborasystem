@@ -42,6 +42,7 @@ angular.module('clienteApp')
             $rootScope.usuario = vals.data;
             $rootScope.usuarioOn = true;
             $rootScope.usuarioOff = false;
+            $rootScope.emailOriginal = $rootScope.usuario.email;
             $window.location.href = "#!/";
           }
 
@@ -52,7 +53,6 @@ angular.module('clienteApp')
     };
 
     $scope.cerrarSesion = function () {
-      usuarioService.updateUsuario($rootScope.usuario).then(function (vals) {});
       $rootScope.usuario = {};
       $rootScope.usuarioOn = false;
       $rootScope.usuarioOff = true;
@@ -82,5 +82,6 @@ angular.module('clienteApp')
 
       r.readAsBinaryString(f);
     };
+
 
   })

@@ -1,0 +1,94 @@
+<div name="editForm" class="container">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand">Editar Perfil</a>
+      </div>
+    </div>
+    <div class="jumbotron">
+      <form name="editForm" class="form-horizontal">
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="Name">Nombre</label>
+          <div class="col-md-6">
+            <input ng-model="usuario.nombre" name="Name" type="text" placeholder="Nombre" class="form-control input-md" required="">
+            <span ng-show="editForm.Name.$error.required" class="help-block">Por favor ingrese un nombre</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="Name">Apellido</label>
+          <div class="col-md-6">
+            <input ng-model="usuario.apellido" name="Apellido" type="text" placeholder="Apellido" class="form-control input-md" required="">
+            <span ng-show="editForm.Apellido.$error.required" class="help-block">Por favor ingrese un apellido</span>
+          </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="User Id">Telefono</label>
+          <div class="col-md-6">
+            <input ng-model="usuario.telefono" name="telefono" type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+              placeholder="telefono" class="form-control input-md" required="">
+              <span ng-show="editForm.telefono.$error.required" class="help-block">Por favor ingrese un telefono</span>
+          </div>
+        </div>
+
+        
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="User Id">Avatar</label>
+          <div class="col-md-6">
+            <input ng-model="usuario.avatar" type="file" id="file" name="file" />
+          </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="User Name">Email</label>
+          <div class="col-md-6">
+            <div class="input-group input-group-sm">
+              <span class="input-group-addon" id="sizing-addon1">@</span>
+              <input ng-model="usuario.email" type="email" class="form-control" name="email" placeholder="Email" aria-describedby="sizing-addon1"
+                required="">
+            </div>
+            <span ng-show="editForm.email.$error.required" class="help-block">Por favor ingrese su email</span>
+            <span ng-show="editForm.email.$error.email" class="help-block">Formato de email invalido</span>
+          </div>
+        </div>
+
+        <!-- Password input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="Password">Password</label>
+          <div class="col-md-6">
+            <input ng-model="usuario.password" name="Password" type="password" placeholder="Password" class="form-control input-md" required=""
+              ng-minlength="6">
+              <span ng-show="editForm.Password.$error.required" class="help-block">Por favor ingrese una contraseña</span>
+              <span ng-show="editForm.Password.$error.minlength" class="help-block">Por favor ingrese una contraseña de al menos 6 caracteres</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="Password">Repetir password</label>
+          <div class="col-md-6">
+            <input ng-model="usuario.confirmpass" name="PasswordRepeat" type="password" placeholder="repetir password" class="form-control input-md" required=""
+              ng-minlength="6">
+              <span ng-hide="usuario.password == usuario.confirmpass" class="help-block">Por favor ingrese una contraseña igual a la anterior</span>
+          </div>
+        </div>
+
+        <br>
+
+        <!-- Button -->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for=""></label>
+          <div class="col-md-4">
+            <button ng-disabled="((editForm.$invalid) || (usuario.password != usuario.confirmpass))" ng-click="editarUsuario(usuario)" name="" class="btn btn-success">Editar</button>
+          </div>
+        </div>
+
+        <div ng-show="error == true" ng-model="errormessage" class="alert alert-danger">
+          <strong>Error!</strong> {{ errormessage }}
+        </div>
+
+      </form>
+    </div>
+</div>

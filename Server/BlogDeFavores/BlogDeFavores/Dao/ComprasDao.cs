@@ -15,6 +15,7 @@ namespace BlogDeFavores.Dao
         public Compras Registrar(Compras compra, Usuario user)
         {
             context.Compras.Add(compra);
+            context.SaveChanges();
             user.Credito = user.Credito + compra.CantCreditos;
             context.Usuarios.Update(user);
             context.SaveChanges();
