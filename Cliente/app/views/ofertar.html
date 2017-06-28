@@ -1,0 +1,40 @@
+<div name="form" ng-controller="OfertascontrollerCtrl" class="container">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand">Puedes realizar un comentario adicional</a>
+      </div>
+    </div>
+    
+    <form name="form" class="form-horizontal">
+      <div class="form-group">
+        <label class="col-md-4 control-label">Comentario: </label>
+
+        <div class="col-md-6">
+          <div class="input-group input-group-sm">
+            <textarea ng-model="oferta.comentario" name="description" class="form-control" placeholder="Haz un comentario para incrementar tus chances de ser elegido!" aria-describedby="sizing-addon1"
+              style="width:300px;height:100px"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4 control-label" for=""></label>
+        <div class="col-md-4">
+          <button ng-click="publicarOferta(oferta)" name="" class="btn btn-success">Publicar Oferta</button>
+        </div>
+      </div>
+
+    </form>
+
+    <br>
+    <br>
+    <br>
+
+    <div ng-show="error" ng-model="errormessage" class="alert alert-danger">
+      <strong>Error!</strong> {{ errormessage }}
+    </div>
+
+    
+
+</div>

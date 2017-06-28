@@ -14,6 +14,7 @@
                     <li>|</li>
                     <span></i> Fecha limite: {{ gauchadaActual.fechaFin | date: 'dd-MM-yyyy' }}</span>
                 </ul>
+                <a ng-show="usuario.id != gauchadaActual.autorId" class="btn btn-blog align-center marginBottom10" ng-href="#!/ofertar">OFRECERSE!</a>
             </div>
         </div>
     </div>

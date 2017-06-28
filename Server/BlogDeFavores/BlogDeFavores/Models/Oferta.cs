@@ -6,8 +6,10 @@ namespace BlogDeFavores.Models
     {
         public Guid Id { get; set; }
         public Guid IdOfertador { get; set; }
+        public Guid GauchadaId { get; set; }
         public Status Estado { get; set; }
         public Calificacion Calificacion { get; set; }
+        public string Comentario { get; set; }
     }
 
     public enum Status

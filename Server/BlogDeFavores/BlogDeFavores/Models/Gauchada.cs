@@ -20,6 +20,7 @@ namespace BlogDeFavores.Models
         [Required]
         public DateTime FechaFin { get; set; }
         public List<Comentarios> Comentarios { get; set; }
+        public List<Oferta> Oferta { get; set; }
         public string Autor { get; set; }
         public Guid AutorId { get; set; }
         public Guid ActorId { get; set; }

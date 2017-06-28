@@ -56,6 +56,10 @@ angular
         templateUrl: 'views/editarperfil.html',
         controller: 'PerfilcontrollerCtrl',
       })
+      .when('/ofertar', {
+        templateUrl: 'views/ofertar.html',
+        controller: 'OfertascontrollerCtrl',
+      })
       .otherwise({
         redirectTo: '/'
       });

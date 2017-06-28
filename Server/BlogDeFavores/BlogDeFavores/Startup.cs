@@ -1,4 +1,5 @@
-﻿using BlogDeFavores.Dao;
+﻿using BlogDeFavores.Controllers;
+using BlogDeFavores.Dao;
 using BlogDeFavores.Interfaces;
 using BlogDeFavores.Services;
 using Microsoft.EntityFrameworkCore;
@@ -48,6 +49,8 @@ namespace BlogDeFavores
             services.AddSingleton<IUsuarioDao, UsuarioDao>();
             services.AddSingleton<IComprasService, CompraService>();
             services.AddSingleton<IComprasDao, ComprasDao>();
+            services.AddSingleton<IOfertaService, OfertaService>();
+            services.AddSingleton<IOfertaDao, OfertaDao>();
 
             services.AddMvc();
             services.Configure<MvcOptions>(options =>
