@@ -48,6 +48,14 @@ angular
         templateUrl: 'views/vergauchada.html',
         controller: 'GauchadacontrollerCtrl',
       })
+      .when('/editargauchada', {
+        templateUrl: 'views/editargauchada.html',
+        controller: 'GauchadacontrollerCtrl',
+      })
+      .when('/listaofertas', {
+        templateUrl: 'views/listaofertas.html',
+        controller: 'GauchadacontrollerCtrl',
+      })
       .when('/perfil', {
         templateUrl: 'views/perfil.html',
         controller: 'PerfilcontrollerCtrl',

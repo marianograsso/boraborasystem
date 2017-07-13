@@ -32,6 +32,8 @@ namespace BlogDeFavores.Controllers
             gauchadasService.Eliminar(id);
         }
 
+        
+
         [HttpPut, Route("/api/gauchada/{id}")]
         public void UpdateGauchada(Guid id, [FromBody] Gauchada gauchada)
         {

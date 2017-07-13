@@ -34,6 +34,11 @@ namespace BlogDeFavores.Services
             return _gauchadaDao.Registrar(gauchada);
         }
 
+        public void RegistrarComentario(Guid id, Comentarios comentario)
+        {
+            _gauchadaDao.RegistrarComentario(id, comentario);
+        }
+
         public void Eliminar(Guid id)
         {
             _gauchadaDao.Eliminar(id);

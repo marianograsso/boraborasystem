@@ -1,0 +1,71 @@
+<div ng-show="usuario.id != null" name="editGauchada" ng-controller="GauchadacontrollerCtrl" class="container">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand">Editar Gauchada</a>
+      </div>
+    </div>
+    <form name="editGauchada" class="form-horizontal">
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="Name">Titulo <span ng-show="editGauchada.Titulo.$error.required">*</span></label>
+        <div class="col-md-6">
+          <input ng-model="gauchadaEdit.titulo" name="Titulo" type="text" placeholder="Titulo" class="form-control input-md" required="">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="Name">Tipo <span ng-show="editGauchada.Tipo.$error.required">*</span></label>
+        <div class="col-md-6">
+          <input ng-model="gauchadaEdit.tipo" name="Tipo" type="text" placeholder="Tipo" class="form-control input-md" required="">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="Name">Localidad <span ng-show="editGauchada.Localidad.$error.required">*</span></label>
+        <div class="col-md-6">
+          <input ng-model="gauchadaEdit.localidad" name="Localidad" type="text" placeholder="Localidad" class="form-control input-md" required="">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="Name">Imagen</label>
+        <div class="col-md-6">
+          <input id="myFile" ng-model="gauchadaEdit.imagen" name="Imagen" type="file">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="User Name">Descripcion <span ng-show="editGauchada.description.$error.required">*</span></label>
+
+        <div class="col-md-6">
+          <div class="input-group input-group-sm">
+            <textarea ng-model="gauchadaEdit.descripcion" name="description" class="form-control" placeholder="Descripcion" aria-describedby="sizing-addon1"
+              required=""></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4 control-label" for=""></label>
+        <div class="col-md-4">
+          <button ng-disabled="editGauchada.$invalid" ng-click="editarGauchada(gauchadaEdit)" name="" class="btn btn-success">Editar Gauchada</button>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <h6>Los campos con "*" son requeridos</h6>
+      </div>
+
+    </form>
+
+    <br>
+    <br>
+    <br>
+
+    <div ng-show="error" ng-model="errormessage" class="alert alert-danger">
+      <strong>Error!</strong> {{ errormessage }}
+    </div>
+
+    
+
+</div>

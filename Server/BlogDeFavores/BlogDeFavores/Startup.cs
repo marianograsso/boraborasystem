@@ -51,6 +51,10 @@ namespace BlogDeFavores
             services.AddSingleton<IComprasDao, ComprasDao>();
             services.AddSingleton<IOfertaService, OfertaService>();
             services.AddSingleton<IOfertaDao, OfertaDao>();
+            services.AddSingleton<IComentarioService, ComentarioService>();
+            services.AddSingleton<IComentarioDao, ComentarioDao>();
+            services.AddSingleton<ICalificacionService, CalificacionService>();
+            services.AddSingleton<ICalifacionDao, CalificacionDao>();
 
             services.AddMvc();
             services.Configure<MvcOptions>(options =>

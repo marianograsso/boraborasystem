@@ -24,6 +24,7 @@ angular.module('clienteApp')
             usuarioService.getUsuarioActual(usuario.id)
               .then(function (vals) {
                 $rootScope.usuarioActual = vals.data;
+                $rootScope.emailOriginal = usuario.email;
               })
             $window.location.href = "#!/perfil";
           })
@@ -37,6 +38,7 @@ angular.module('clienteApp')
                 usuarioService.getUsuarioActual(usuario.id)
                   .then(function (vals) {
                     $rootScope.usuarioActual = vals.data;
+                    $rootScope.emailOriginal = usuario.email;
                   })
                 $window.location.href = "#!/perfil";
               })

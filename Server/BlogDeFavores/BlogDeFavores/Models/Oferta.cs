@@ -7,8 +7,9 @@ namespace BlogDeFavores.Models
         public Guid Id { get; set; }
         public Guid IdOfertador { get; set; }
         public Guid GauchadaId { get; set; }
+        public string NombreOfertador { get; set; } 
         public Status Estado { get; set; }
-        public Calificacion Calificacion { get; set; }
+        public Guid IdCalificacion { get; set; }
         public string Comentario { get; set; }
     }
 

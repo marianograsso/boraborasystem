@@ -24,13 +24,19 @@
                     
             
             </p>
-            <div class="well" ng-repeat="gauchada in gauchadas | filter: { tipo: filter_type } | filter: { localidad: filter_loc } | filter: { titulo: filter_title } | filter: { descripcion: filter_description }">
+            <div class="well" ng-repeat="gauchada in gauchadas | filter: { estado: 2 } | filter: { tipo: filter_type } | filter: { localidad: filter_loc } | filter: { titulo: filter_title } | filter: { descripcion: filter_description }">
                 <div class="media">
                     <a class="pull-left">
                         <img class="media-object" ng-src="{{ gauchada.imagen }}">
                     </a>
                     <div class="media-body">
                         <h4 class="media-heading">{{ gauchada.titulo }}</h4>
+                        <p class="text-left">
+                            <span class="glyphicon glyphicon-plane" aria-hidden="true"></span> Localidad: {{ gauchada.localidad }}
+                        </p>
+                        <p class="text-left">
+                            Tipo: #{{ gauchada.tipo }}
+                        </p>
                         <p class="text-right">
                             <span class="glyphicon glyphicon-user" aria-hidden="true"></span><span ng-click="verPibe(gauchada.autorId)"><a>{{ gauchada.autor }}
                             </span></a>

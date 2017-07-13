@@ -12,11 +12,12 @@ angular.module('clienteApp')
     $scope.error = false;
 
     $scope.publicarOferta = function (oferta) {
-     ofertaservice.validateOffer(usuario.id, $rootScope.gauchadaActual.id).then(function (vals) {
+     ofertaservice.validateOffer($rootScope.usuario.id, $rootScope.gauchadaActual.id).then(function (vals) {
         var txt = vals;
         if (vals.data == "Usuario registrado con exito") {
           $scope.oferta.Estado = 2;
           $scope.oferta.IdOfertador = $rootScope.usuario.id;
+          $scope.oferta.nombreOfertador = $rootScope.usuario.nombre;
           $scope.oferta.GauchadaId = $rootScope.gauchadaActual.id;
           ofertaservice.registrarOferta(oferta)
             .then(function (vals) {
@@ -24,7 +25,7 @@ angular.module('clienteApp')
             })
         }
         else {
-          $scope.errormessage = vals.data;
+          $scope.errormessage = "Ya ofertaste en esta gauchada";
           $scope.error = true;
         }
       })

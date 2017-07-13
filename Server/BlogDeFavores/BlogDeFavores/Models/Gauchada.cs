@@ -24,5 +24,9 @@ namespace BlogDeFavores.Models
         public string Autor { get; set; }
         public Guid AutorId { get; set; }
         public Guid ActorId { get; set; }
+        public Status Estado { get; set; }
     }
+
+
 }
+

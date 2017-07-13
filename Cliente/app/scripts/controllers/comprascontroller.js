@@ -32,7 +32,7 @@ angular.module('clienteApp')
     }
 
     $scope.pagar = function (cantidadFinal, precioFinal) {
-      $rootScope.usuario.credito = $rootScope.usuario.credito + cantidadFinal;
+      $rootScope.usuario.credito += cantidadFinal;
       var id = $rootScope.usuario.id;
       var compra = {
         CantCreditos: cantidadFinal,

@@ -9,6 +9,8 @@ namespace BlogDeFavores.Dao
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Compras> Compras { get; set; }
         public DbSet<Oferta> Ofertas { get; set; }
+        public DbSet<Comentarios> Comentarios { get; set; }
+        public DbSet<Calificacion> Calificaciones { get; set; }
 
         public GauchadaDbContext(DbContextOptions<GauchadaDbContext> options) : base(options)
         {
@@ -21,6 +23,8 @@ namespace BlogDeFavores.Dao
             modelBuilder.Entity<Usuario>().ToTable("Usuario");
             modelBuilder.Entity<Compras>().ToTable("Compras");
             modelBuilder.Entity<Oferta>().ToTable("Oferta");
+            modelBuilder.Entity<Comentarios>().ToTable("Comentarios");
+            modelBuilder.Entity<Calificacion>().ToTable("Calificaciones");
         }
 
     }

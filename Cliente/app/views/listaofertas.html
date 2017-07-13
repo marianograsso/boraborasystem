@@ -1,0 +1,48 @@
+<div class="well" ng-repeat="oferta in ofertasList | filter: { estado: 1 }">
+    <div class="media">
+        <div class="media-body">
+            <h4 class="media-heading"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                <span ng-click="verPibe(oferta.idOfertador)">
+                <a>{{ oferta.nombreOfertador }}
+                   
+                </a>
+            </span>
+            </h4>
+            <p>{{ oferta.comentario }}</p>
+        </div>
+        <div class="alert alert-success pull-right" role="alert">
+            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+            <span class="sr-only">Error:</span> Oferta Aceptada
+        </div>
+        <div ng-show="gauchadaOffer.estado != 2" class="alert alert-success pull-center" role="alert">
+            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+            <span class="sr-only">Error:</span> Oferta Calificada
+        </div>
+
+
+    </div>
+    <div ng-show="gauchadaOffer.estado == 2" class="post-comments">
+        <div class="form-group">
+            <textarea name="comment" ng-model="calificacion.texto" class="form-control" rows="3" required></textarea>
+        </div>
+        <button type="submit"  ng-click="calificarPositivo(oferta, calificacion)" class="btn btn-default">POSITIVO</button>
+        <button type="submit" ng-click="calificarNeutro(oferta, calificacion)" class="btn btn-default">NEUTRO</button>
+        <button type="submit" ng-click="calificarNegativo(oferta, calificacion)" class="btn btn-default">NEGATIVO</button>
+    </div>
+</div>
+
+
+<div class="well" ng-repeat="oferta in ofertasList | filter: { estado: 2 }">
+    <div class="media">
+        <div class="media-body">
+            <h4 class="media-heading"><span class="glyphicon glyphicon-user" aria-hidden="true"></span><span ng-click="verPibe(oferta.idOfertador)"><a>{{ oferta.nombreOfertador }}
+                            </span></a>
+            </h4>
+            <p>{{ oferta.comentario }}</p>
+        </div>
+    </div>
+
+
+    <a class="btn btn-success align-center marginBottom10" ng-click="aceptarOferta(oferta)">ACEPTAR</a>
+    <a class="btn btn-danger align-center marginBottom10" ng-click="rechazarOferta(oferta)">RECHAZAR</a>
+</div>

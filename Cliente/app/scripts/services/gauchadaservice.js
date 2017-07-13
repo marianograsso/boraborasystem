@@ -27,6 +27,7 @@ angular.module('clienteApp')
     service.getAll = function () {
       return $http.get(url + "/");
     }
+    
 
     return service;
   });

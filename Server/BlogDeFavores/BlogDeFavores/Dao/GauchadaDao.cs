@@ -30,6 +30,14 @@ namespace BlogDeFavores.Dao
             throw new NotImplementedException();
         }
 
+        public void RegistrarComentario(Guid id, Comentarios comentario)
+        {
+            Gauchada gauch = GetById(id);
+            gauch.Comentarios.Add(comentario);
+            context.Gauchadas.Update(gauch);
+            context.SaveChanges();
+        }
+
         public Gauchada Registrar(Gauchada gauchada)
         {
             context.Gauchadas.Add(gauchada);
@@ -47,9 +55,14 @@ namespace BlogDeFavores.Dao
         public void Editar(Guid id, Gauchada gauchada)
         {
             Gauchada gauch = GetById(id);
-            gauch.ActorId = gauchada.ActorId;
+            gauch.ActorId = gauchada.ActorId; //este es el que hizo la oferta
             gauch.AutorId = gauchada.AutorId;
             gauch.Descripcion = gauchada.Descripcion;
+            gauch.Estado = gauchada.Estado;
+            gauch.Titulo = gauchada.Titulo;
+            gauch.Tipo = gauchada.Tipo;
+            gauch.Localidad = gauchada.Localidad;
+            gauch.Imagen = gauchada.Imagen;
             context.Gauchadas.Update(gauch);
             context.SaveChanges();
         }

@@ -1,31 +1,66 @@
-<div ng-controller="GauchadacontrollerCtrl" class="col-md-12 blogShort">
-    <div class="well">
-        <div class="media">
-            <div class="post-img-content">
-                <img ng-src="{{ gauchadaActual.imagen }}" class="img-responsive" alt="post img" style="width:630px;height:400px" />
-            </div>
-            <br>
-            <div class="media-body">
-                <h4 class="media-heading">{{ gauchadaActual.titulo }}</h4>
-                <p class="text-right"></p>
-                <p>{{ gauchadaActual.descripcion }}</p>
-                <ul class="list-inline list-unstyled">
-                    <li><span><i class="glyphicon glyphicon-calendar"></i> Iniciado: {{ gauchadaActual.fechaInicio | date: 'dd-MM-yyyy' }} </span></li>
-                    <li>|</li>
-                    <span></i> Fecha limite: {{ gauchadaActual.fechaFin | date: 'dd-MM-yyyy' }}</span>
-                </ul>
-                <a ng-show="usuario.id != gauchadaActual.autorId" class="btn btn-blog align-center marginBottom10" ng-href="#!/ofertar">OFRECERSE!</a>
+<form name="form" class="form-horizontal">
+    <div ng-show="usuario.id != null" ng-controller="GauchadacontrollerCtrl" class="col-md-12 blogShort">
+        <div class="well">
+            <div class="media">
+                <div class="post-img-content">
+                    <img ng-src="{{ gauchadaActual.imagen }}" class="img-responsive" alt="post img" style="width:630px;height:400px" />
+                </div>
+                <br>
+                <div class="media-body">
+                    <h4 class="media-heading">{{ gauchadaActual.titulo }}</h4>
+                    <p class="text-right"></p>
+                    <p>{{ gauchadaActual.descripcion }}</p>
+                    <ul class="list-inline list-unstyled">
+                        <li><span><i class="glyphicon glyphicon-calendar"></i> Iniciado: {{ gauchadaActual.fechaInicio | date: 'dd-MM-yyyy' }} </span></li>
+                        <li>|</li>
+                        <span></i> Fecha limite: {{ gauchadaActual.fechaFin | date: 'dd-MM-yyyy' }}</span>
+                    </ul>
+                    <a ng-show="usuario.id != gauchadaActual.autorId" ng-hide="gauchadaOffer.estado == 1" class="btn btn-blog align-center marginBottom10" ng-href="#!/ofertar">OFRECERSE</a>
+                    <a ng-show="usuario.id == gauchadaActual.autorId" class="btn btn-danger align-center marginBottom10" ng-click="borrarGauchada()">BORRAR</a>
+                    <a ng-show="usuario.id == gauchadaActual.autorId" class="btn btn-info align-center marginBottom10" ng-click="actualizar()">EDITAR</a>
+                    <a ng-show="usuario.id == gauchadaActual.autorId" class="btn btn-success align-right marginBottom10" ng-click="verOfertas()">VER OFERTAS</a>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="post-comments">
-        <form>
+
+        <div class="well" ng-repeat="coment in comentarios">
+            <div class="media">
+                <span><i class="glyphicon glyphicon-user"></i> {{ coment.nombreAutor }}</span>
+            </div>
+            <div class="media">
+                <span class="glyphicon glyphicon-comment" aria-hidden="true"></span> {{ coment.texto }}
+            </div>
+            <div class="media">
+                <span ng-if="coment.respuesta" class="glyphicon glyphicon-comment" aria-hidden="true"></span> {{ coment.respuesta
+                }}
+            </div>
+            <div ng-if="coment.respuesta == ''" class="media">
+                <label ng-if="gauchadaActual.autor == usuario.nombre" for="comment">Escribe una respuesta</label>
+                <br>
+                <textarea ng-if="gauchadaActual.autor == usuario.nombre" name="resp" ng-model="respuesta.texto" class="form-control" rows="3"
+                    required></textarea>
+                <button ng-if="gauchadaActual.autor == usuario.nombre" type="submit" ng-click="publicarRespuesta(respuesta, coment)" class="btn btn-default">Responder</button>
+            </div>
+        </div>
+        <div ng-hide="gauchadaActual.autorId == usuario.id" class="post-comments">
             <div class="form-group">
                 <label for="comment">Escribe una pregunta</label>
-                <textarea name="comment" class="form-control" rows="3" required></textarea>
+                <textarea name="comment" ng-model="comentario.texto" class="form-control" rows="3" required></textarea>
             </div>
-            <button type="submit" class="btn btn-default">Enviar</button>
-        </form>
+            <button type="submit" ng-click="publicarComentario(comentario)" class="btn btn-default">Enviar</button>
+        </div>
+        <br>
     </div>
-    <br>
+</form>
+
+<br>
+<br>
+<br>
+
+<div ng-show="error" ng-model="errormessage" class="alert alert-danger">
+    <strong>Error!</strong> {{ errormessage }}
+</div>
+
+<div ng-show="usuario.id == null" ng-model="errormessage" class="alert alert-danger">
+    <strong>Error! El usuario tiene que estar logueado para poder ver la gauchada especifica</strong>
 </div>

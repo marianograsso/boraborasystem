@@ -6,6 +6,7 @@ namespace BlogDeFavores.Interfaces
 {
     public interface IGauchadasService
     {
+        void RegistrarComentario(Guid id, Comentarios comentario);
         Gauchada GetById(Guid id);
         List<Gauchada> GetByAutor(Guid id);
         List<Gauchada> GetByActor(Guid id);
