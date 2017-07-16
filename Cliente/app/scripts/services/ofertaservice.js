@@ -34,5 +34,11 @@ angular.module('clienteApp')
       return $http.get(url + "/" + id);
     }
 
+    service.getByIdOfertador = function (id){
+      return $http.get(url2 + "/" + id);
+    }
+
+    
+
     return service;
   });

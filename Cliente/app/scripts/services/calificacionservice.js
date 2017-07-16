@@ -16,5 +16,9 @@ angular.module('clienteApp')
       return $http.post(url, calificacion)
     }
 
+    service.getByIdCalificacion = function (id){
+      return $http.get(url + "/" + id);
+    }
+
     return service;
   });

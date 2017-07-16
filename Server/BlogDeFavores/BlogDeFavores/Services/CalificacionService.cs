@@ -20,5 +20,10 @@ namespace BlogDeFavores.Services
         {
             return calificacionDao.Registrar(calificacion);
         }
+
+        public Calificacion GetById(Guid id)
+        {
+            return calificacionDao.GetById(id);
+        }
     }
 }

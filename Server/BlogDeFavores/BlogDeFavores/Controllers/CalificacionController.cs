@@ -1,4 +1,5 @@
-﻿using BlogDeFavores.Interfaces;
+﻿using System;
+using BlogDeFavores.Interfaces;
 using BlogDeFavores.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,6 +20,16 @@ namespace BlogDeFavores.Controllers
             if (ModelState.IsValid)
             {
                 return Ok(calificacionService.Registrar(calificacion));
+            }
+            return BadRequest();
+        }
+
+        [HttpGet, Route("/api/calificacion/{id}")]
+        public IActionResult GetById(Guid id)
+        {
+            if (ModelState.IsValid)
+            {
+                return Ok(calificacionService.GetById(id));
             }
             return BadRequest();
         }

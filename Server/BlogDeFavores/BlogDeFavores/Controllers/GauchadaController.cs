@@ -46,6 +46,12 @@ namespace BlogDeFavores.Controllers
             return Ok(gauchadasService.GetById(id));
         }
 
+        [HttpGet, Route("/api/autor/gauchada/{id}")]
+        public IActionResult GetGauchadaByAutor(Guid id)
+        {
+            return Ok(gauchadasService.GetByAutor(id));
+        }
+
         [HttpGet, Route("/api/gauchada/")]
         public IActionResult GetGauchadas()
         {

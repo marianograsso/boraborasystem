@@ -59,5 +59,10 @@ namespace BlogDeFavores.Dao
             list.ForEach(a => a.Estado = 0);
             context.SaveChanges();
         }
+
+        public List<Oferta> GetByOfertadorId(Guid id)
+        {
+            return context.Ofertas.Where(x => x.IdOfertador == id).ToList();
+        }
     }
 }

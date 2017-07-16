@@ -23,5 +23,10 @@ namespace BlogDeFavores.Dao
             context.SaveChanges();
             return calificacion;
         }
+
+        public Calificacion GetById(Guid id)
+        {
+            return context.Calificaciones.Find(id);
+        }
     }
 }

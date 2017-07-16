@@ -44,6 +44,16 @@ namespace BlogDeFavores.Controllers
             return BadRequest();
         }
 
+        [HttpGet, Route("/api/ofertas/{id}")]
+        public IActionResult GetByOfertadorId(Guid id)
+        {
+            if (ModelState.IsValid)
+            {
+                return Ok(ofertaService.GetByOfertadorId(id));
+            }
+            return BadRequest();
+        }
+
         [HttpPut, Route("/api/oferta/{id}")]
         public void UpdateOferta(Guid id, [FromBody] Oferta oferta)
         {

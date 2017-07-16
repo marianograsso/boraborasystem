@@ -16,13 +16,13 @@
             </nav>
         </div>
         <div class="col-md-10 blogShort">
-            <p>Tipo: <input ng-model="filter_type" name="tipo" type="text" class="input-md"> 
-                Localidad: <input ng-model="filter_loc" name="localidad" type="text" class="input-md"></p>
+            <p>Tipo: <input ng-model="filter_type" name="tipo" type="text" class="input-md"> Localidad: <input ng-model="filter_loc"
+                    name="localidad" type="text" class="input-md"></p>
             <p>Titulo:
-                    <input ng-model="filter_title" type="text" class="input-md" />
-                Descripcion: <input ng-model="filter_description" type="text" class="input-md" />
-                    
-            
+                <input ng-model="filter_title" type="text" class="input-md" /> Descripcion: <input ng-model="filter_description"
+                    type="text" class="input-md" />
+
+
             </p>
             <div class="well" ng-repeat="gauchada in gauchadas | filter: { estado: 2 } | filter: { tipo: filter_type } | filter: { localidad: filter_loc } | filter: { titulo: filter_title } | filter: { descripcion: filter_description }">
                 <div class="media">
@@ -32,7 +32,8 @@
                     <div class="media-body">
                         <h4 class="media-heading">{{ gauchada.titulo }}</h4>
                         <p class="text-left">
-                            <span class="glyphicon glyphicon-plane" aria-hidden="true"></span> Localidad: {{ gauchada.localidad }}
+                            <span class="glyphicon glyphicon-plane" aria-hidden="true"></span> Localidad: {{ gauchada.localidad
+                            }}
                         </p>
                         <p class="text-left">
                             Tipo: #{{ gauchada.tipo }}

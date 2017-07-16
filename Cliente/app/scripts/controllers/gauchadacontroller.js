@@ -10,6 +10,7 @@
 angular.module('clienteApp')
   .controller('GauchadacontrollerCtrl', function ($scope, $rootScope, gauchadaservice, $window, usuarioService, comentarioservice, ofertaservice, calificacionservice) {
 
+    
     $scope.calificacion = {
       texto: "",
       puntaje: 0
@@ -233,4 +234,5 @@ angular.module('clienteApp')
           })
       }
     }
+
   });

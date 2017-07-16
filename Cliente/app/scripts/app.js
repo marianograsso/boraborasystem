@@ -68,6 +68,14 @@ angular
         templateUrl: 'views/ofertar.html',
         controller: 'OfertascontrollerCtrl',
       })
+      .when('/misofertas', {
+        templateUrl: 'views/misofertas.html',
+        controller: 'OfertascontrollerCtrl',
+      })
+      .when('/misgauchadas', {
+        templateUrl: 'views/misgauchadas.html',
+        controller: 'OfertascontrollerCtrl',
+      })
       .otherwise({
         redirectTo: '/'
       });

@@ -11,5 +11,6 @@ namespace BlogDeFavores.Interfaces
         bool ValidateOffer(Guid usuarioId, Guid gauchadaId);
         void Editar(Guid id, Oferta oferta);
         void RechazarTodas(Guid idGauchada);
+        List<Oferta> GetByOfertadorId(Guid id);
     }
 }

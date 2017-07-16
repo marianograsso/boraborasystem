@@ -39,5 +39,10 @@ namespace BlogDeFavores.Services
         {
             ofertaDao.RechazarTodas(idGauchada);
         }
+
+        public List<Oferta> GetByOfertadorId(Guid id)
+        {
+            return ofertaDao.GetByOfertadorId(id);
+        }
     }
 }

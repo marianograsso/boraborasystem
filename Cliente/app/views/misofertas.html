@@ -1,0 +1,37 @@
+<div class="btn-group" role="group" aria-label="...">
+    <button type="button" class="btn btn-success" ng-click="setearFiltro(1)">ACEPTADAS</button>
+    <button type="button" class="btn btn-danger" ng-click="setearFiltro(0)">RECHAZADAS</button>
+    <button type="button" class="btn btn-warning" ng-click="setearFiltro(2)">PENDIENTES</button>
+</div>
+
+<br>
+<br>
+
+<div class="well" ng-repeat="oferta in listaOfertas | filter: { estado: filter_estado }">
+    <div class="media">
+        <div class="media-body">
+            <h4 class="media-heading"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                <span ng-click="verPibe(oferta.idOfertador)">
+                <a>{{ oferta.nombreOfertador }}</a>
+            </span>
+            </h4>
+            <p>{{ oferta.comentario }}</p>
+        </div>
+        <h6>
+            <button type="button" class="btn btn-success" ng-click="getCalificacion(oferta.idCalificacion)">VER CALIFICACION</button>
+        </h6>
+
+
+        <h3>
+            <div ng-show="oferta.estado == 2" class="label label-warning pull-right" role="alert">
+                <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+            </div>
+            <div ng-show="oferta.estado == 1" class="label label-success pull-right" role="alert">
+                <span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>
+            </div>
+            <div ng-show="oferta.estado == 0" class="label label-danger pull-right" role="alert">
+                <span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>
+            </div>
+        </h3>
+    </div>
+</div>

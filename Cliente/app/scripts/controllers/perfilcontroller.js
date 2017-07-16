@@ -8,8 +8,7 @@
  * Controller of the clienteApp
  */
 angular.module('clienteApp')
-  .controller('PerfilcontrollerCtrl', function ($scope, usuarioService, $rootScope, $window) {
-
+  .controller('PerfilcontrollerCtrl', function ($scope, usuarioService, $rootScope, $window, gauchadaservice) {
     $scope.verUsuario = function (usuarioId) {
       usuarioService.getUsuarioActual(usuarioId)
         .then(function (vals) {
@@ -50,4 +49,6 @@ angular.module('clienteApp')
         })
       }
     };
+
+    
   })

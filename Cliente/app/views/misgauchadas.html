@@ -1,0 +1,34 @@
+<div class="btn-group" role="group" aria-label="...">
+    <button type="button" class="btn btn-success" ng-click="setearFiltro(1)">EN CURSO</button>
+    <button type="button" class="btn btn-danger" ng-click="setearFiltro(0)">FINALIZADAS</button>
+    <button type="button" class="btn btn-warning" ng-click="setearFiltro(2)">PENDIENTES</button>
+</div>
+
+<br>
+<br>
+
+<div class="well" ng-repeat="gauchada in listaGauchadas | filter: { estado: filter_estado }">
+    <div class="media">
+        <a class="pull-left">
+            <img class="media-object" ng-src="{{ gauchada.imagen }}">
+        </a>
+        <div class="media-body">
+            <h4 class="media-heading">{{ gauchada.titulo }}</h4>
+            <ul class="list-inline list-unstyled">
+                <a class="btn btn-blog pull-right marginBottom10" ng-click="verGauchada(gauchada)" href="#!/vergauchada">VER MAS</a>
+            </ul>
+
+        </div>
+        <h3>
+            <div ng-show="gauchada.estado == 2" class="label label-warning pull-right" role="alert">
+                <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+            </div>
+            <div ng-show="gauchada.estado == 1" class="label label-success pull-right" role="alert">
+                <span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>
+            </div>
+            <div ng-show="gauchada.estado == 0" class="label label-danger pull-right" role="alert">
+                <span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>
+            </div>
+        </h3>
+    </div>
+</div>

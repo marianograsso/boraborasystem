@@ -22,7 +22,7 @@ namespace BlogDeFavores.Dao
 
         public List<Gauchada> GetByAutor(Guid id)
         {
-            throw new NotImplementedException();
+            return context.Gauchadas.Where(x => x.AutorId == id).ToList();
         }
 
         public List<Gauchada> GetByActor(Guid id)
