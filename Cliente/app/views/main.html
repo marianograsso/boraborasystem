@@ -26,8 +26,13 @@
             </p>
             <div class="well" ng-repeat="gauchada in gauchadas | filter: { estado: 2 } | filter: { tipo: filter_type } | filter: { localidad: filter_loc } | filter: { titulo: filter_title } | filter: { descripcion: filter_description }">
                 <div class="media">
+                    <div class="col-xs-6 col-md-3">
+                        <a href="#" class="thumbnail" class="pull-left">
+                            <img class="media-object" ng-src="{{ gauchada.imagen }}">
+                        </a>
+                    </div>
                     <a class="pull-left">
-                        <img class="media-object" ng-src="{{ gauchada.imagen }}">
+                        
                     </a>
                     <div class="media-body">
                         <h4 class="media-heading">{{ gauchada.titulo }}</h4>

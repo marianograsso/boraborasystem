@@ -9,14 +9,8 @@ namespace BlogDeFavores.Models
         public Guid Id { get; set; }
         public string Nombre { get; set; }
         public string Imagen { get; set; }
-        public Range Rango { get; set; }
+        public int Start { get; set; }  
     }
 
-    public class Range
-    {
-        public Guid Id { get; set; }
-        int Start { get; set; }
-        int End { get; set; }
-    }
     
 }

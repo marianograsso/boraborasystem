@@ -18,6 +18,7 @@ angular.module('clienteApp')
 
     $scope.editarUsuario = function (usuario) {
       if ($rootScope.emailOriginal == usuario.email) {
+        usuario.avatar = document.getElementById("file").value;
         usuarioService.updateUsuario(usuario)
           .then(function (vals) {
             usuarioService.getUsuarioActual(usuario.id)
@@ -32,6 +33,7 @@ angular.module('clienteApp')
         usuarioService.validateEmail(usuario.email).then(function (vals) {
           var txt = vals;
           if (vals.data == "Usuario registrado con exito") {
+            usuario.avatar = document.getElementById("file").value;
             usuarioService.updateUsuario(usuario)
               .then(function (vals) {
                 usuarioService.getUsuarioActual(usuario.id)

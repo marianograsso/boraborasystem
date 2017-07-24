@@ -32,6 +32,9 @@
       <div class="form-group">
         <label class="col-md-4 control-label" for="Name">Imagen</label>
         <div class="col-md-6">
+          <!--<input id="myFile" type="file" ngf-select ng-model="gauchada.Imagen" name="file" accept="image/*" ngf-max-size="2MB" required ngf-model-invalid="errorFile">-->
+          <!--<button ng-click="uploadPic(gauchada.Imagen)">Submit</button>-->
+          <!--<img ng-show="myForm.file.$valid" ngf-thumbnail="gauchada.Imagen" class="thumb">-->
           <input id="myFile" ng-model="gauchada.Imagen" name="Imagen" type="file">
         </div>
       </div>
@@ -76,6 +79,6 @@
       <strong>Error!</strong> {{ errormessage }}
     </div>
 
-    
+
 
 </div>

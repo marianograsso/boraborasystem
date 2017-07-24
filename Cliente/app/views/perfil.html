@@ -18,7 +18,7 @@
                             <p/>
                             <span>Puntaje: {{ usuarioActual.puntaje }}</span>
                             <p/>
-                            <span>Creditos: {{ usuarioActual.credito }}</span>
+                            <span ng-show="usuario.id == usuarioActual.id">Creditos: {{ usuarioActual.credito }}</span>
                         </div>
                         <div class=" col-md-9 col-lg-9 ">
                             <table class="table table-user-information">

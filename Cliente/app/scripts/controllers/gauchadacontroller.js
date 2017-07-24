@@ -8,13 +8,35 @@
  * Controller of the clienteApp
  */
 angular.module('clienteApp')
-  .controller('GauchadacontrollerCtrl', function ($scope, $rootScope, gauchadaservice, $window, usuarioService, comentarioservice, ofertaservice, calificacionservice) {
+  .controller('GauchadacontrollerCtrl', function ($scope, $rootScope, gauchadaservice, $window, usuarioService, comentarioservice, ofertaservice, calificacionservice, Upload, $timeout) {
 
-    
+
+    //Aca se puede borrar
+    $scope.uploadPic = function (file) {
+      file.upload = Upload.upload({
+        url: 'https://angular-file-upload-cors-srv.appspot.com/upload',
+        data: { username: $rootScope.usuario, file: file },
+      });
+
+      file.upload.then(function (response) {
+        $timeout(function () {
+          file.result = response.data;
+        });
+      }, function (response) {
+        if (response.status > 0)
+          $scope.errorMsg = response.status + ': ' + response.data;
+      }, function (evt) {
+        // Math.min is to fix IE which reports 200% sometimes
+        file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
+      });
+    }
+    // hasta aca
+
     $scope.calificacion = {
       texto: "",
       puntaje: 0
     }
+
     $scope.ofertas = {};
     $scope.respuesta = {};
     $rootScope.usuarioActual = {};
@@ -27,8 +49,6 @@ angular.module('clienteApp')
     gauchadaservice.getAll().then(function (vals) {
       $scope.gauchadas = vals.data
     });
-
-
 
     $scope.publicarGauchada = function (gauchada) {
       if ($scope.gauchada.FechaFin < $scope.fecha) {
@@ -48,7 +68,7 @@ angular.module('clienteApp')
           else {
             $scope.gauchada.Imagen = x.value;
           }
-
+          //$scope.gauchada.Imagen = document.getElementById("myFile").value;
           $rootScope.usuario.credito = $rootScope.usuario.credito - 1;
           $scope.gauchada.AutorId = $rootScope.usuario.id;
           $scope.gauchada.Estado = 2;
@@ -74,6 +94,7 @@ angular.module('clienteApp')
             alert("La gauchada no se puede editar porque posee ofertas realizadas");
           }
           else {
+            $rootScope.gauchadaEdit.Imagen = document.getElementById("myFile").value;
             gauchadaservice.updateGauchada($rootScope.gauchadaEdit).then(function (vals) {
               $window.location.href = "#!/"
             });
@@ -147,7 +168,7 @@ angular.module('clienteApp')
           })
       })
     }
-    
+
     $scope.calificarNeutro = function (oferta, calificacion) {
       calificacion.puntaje = 2;
       calificacionservice.publicarCalificacion(calificacion).then(function (vals) {

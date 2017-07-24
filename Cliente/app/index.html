@@ -32,6 +32,14 @@
         <li class="active"><a href="#/">Home</a></li>
         <li><a ng-hide="usuarioOn == true" ng-href="#!/registrarusuario">Registrarse</a></li>
         <li><a ng-hide="usuarioOn == true" ng-href="#!/iniciarsesion">Iniciar Sesion</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" ng-hide="usuarioAdmin == false">Administrador <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a ng-href="#!/">Ver Rankings</a></li>
+            <li><a href="#!/">Ver Compras</a></li>
+            <li><a href="#!/administrarcategorias">Administrar Categorias</a></li>
+          </ul>
+        </li>
         <li class="dropdown" ng-hide="usuarioOn == false">
           <a class="dropdown-toggle" data-toggle="dropdown"> {{ usuario.nombre }} ({{ usuario.credito }} creditos)<span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -48,7 +56,7 @@
     <div ng-view=""></div>
   </div>
 
-  
+
 
   <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
   <script>
@@ -74,6 +82,7 @@
   <script src="bower_components/angular-route/angular-route.js"></script>
   <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
   <script src="bower_components/angular-touch/angular-touch.js"></script>
+  <script src="bower_components/ng-file-upload/ng-file-upload.js"></script>
   <!-- endbower -->
   <!-- endbuild -->
 
@@ -93,6 +102,8 @@
   <script src="scripts/controllers/comentarioscontroller.js"></script>
   <script src="scripts/services/ofertaservice.js"></script>
   <script src="scripts/services/calificacionservice.js"></script>
+  <script src="scripts/controllers/admincontroller.js"></script>
+  <script src="scripts/services/categoriaservice.js"></script>
   <!-- endbuild -->
 </body>
 

@@ -17,7 +17,6 @@ namespace BlogDeFavores.Models
         public int Telefono { get; set; }
         public int Puntaje { get; set; }
         public string Avatar { get; set; }
-        public Categoria Categoria { get; set; }
         public List<Oferta> OfertasRealizadas { get; set; }
         public List<Gauchada> GauchadasIniciadas { get; set; }
         public int Credito { get; set; }

@@ -55,6 +55,8 @@ namespace BlogDeFavores
             services.AddSingleton<IComentarioDao, ComentarioDao>();
             services.AddSingleton<ICalificacionService, CalificacionService>();
             services.AddSingleton<ICalifacionDao, CalificacionDao>();
+            services.AddSingleton<ICategoriaService, CategoriaService>();
+            services.AddSingleton<ICategoriaDao, CategoriaDao>();
 
             services.AddMvc();
             services.Configure<MvcOptions>(options =>

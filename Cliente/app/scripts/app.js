@@ -15,7 +15,9 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'ngFileUpload',
+    
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -75,6 +77,10 @@ angular
       .when('/misgauchadas', {
         templateUrl: 'views/misgauchadas.html',
         controller: 'OfertascontrollerCtrl',
+      })
+      .when('/administrarcategorias', {
+        templateUrl: 'views/administrarcategorias.html',
+        controller: 'AdmincontrollerCtrl',
       })
       .otherwise({
         redirectTo: '/'

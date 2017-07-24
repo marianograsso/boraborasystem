@@ -12,6 +12,7 @@ angular.module('clienteApp')
     $scope.error = false;
     $rootScope.usuarioOn = false;
     $rootScope.usuarioOff = true;
+    $rootScope.usuarioAdmin = false;
 
     $scope.registrar = function (usuario) {
       usuarioService.validateEmail(usuario.email).then(function (vals) {
@@ -39,6 +40,9 @@ angular.module('clienteApp')
             sleep(1000);
           }
           else {
+            if (vals.data.email == "admin@admin") {
+               $rootScope.usuarioAdmin = true;
+            }
             $rootScope.usuario = vals.data;
             $rootScope.usuarioOn = true;
             $rootScope.usuarioOff = false;
@@ -56,6 +60,7 @@ angular.module('clienteApp')
       $rootScope.usuario = {};
       $rootScope.usuarioOn = false;
       $rootScope.usuarioOff = true;
+      $rootScope.usuarioAdmin = false;
     };
 
     function createUser(usuario) {
