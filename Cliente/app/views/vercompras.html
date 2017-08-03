@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Compras de Usuarios mensuales</h3>
+
+            </div>
+            <table class="table table-hover" id="dev-table">
+                <thead>
+                    <tr>
+                        <th>Nombre y Apellido</th>
+                        <th>Cantidad de creditos</th>
+                        <th>Precio Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="usuario in comprasMensuales | orderBy: 'creditos'">
+                        <td>{{ usuario.nombre }} {{ usuario.apellido}}</td>
+                        <td>{{ usuario.totalCreditos }}</td>
+                        <td>{{ usuario.totalPrecio }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

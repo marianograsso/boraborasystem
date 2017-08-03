@@ -2,20 +2,22 @@
     <div class="row">
         <div class="panel panel-primary">
             <div class="panel-heading">
-                <h3 class="panel-title">Developers</h3>
+                <h3 class="panel-title">Categorias</h3>
 
             </div>
-            <div class="panel-body">
-                <input placeholder="Nombre" ng-model="categoriaNueva.nombre" type="text" name="nombre" required>
-                <input placeholder="Puntaje requerido" ng-model="categoriaNueva.start" type="number" name="puntaje" required>
-                <div class="pull-right">
-                    <button type="button" ng-click="agregarCategoria(categoriaNueva)" class="btn btn-success">
+            <form name="myForm">
+                <div class="panel-body">
+                    <input placeholder="Nombre" ng-model="categoriaNueva.nombre" type="text" name="nombre" required>
+                    <input placeholder="Puntaje requerido" ng-model="categoriaNueva.start" onkeypress="return event.charCode >= 48 && event.charCode <= 57" type="text" name="puntaje" required>
+                    <div class="pull-right">
+                        <button type="button" ng-disabled="myForm.$invalid" ng-click="agregarCategoria(categoriaNueva)"  class="btn btn-success">
                         <span class="clickable filter" data-toggle="tooltip" title="Toggle table filter" data-container="body">
 								<i class="glyphicon glyphicon-plus"></i>
 					    </span>
                     </button>
+                    </div>
                 </div>
-            </div>
+            </form>
             <table class="table table-hover" id="dev-table">
                 <thead>
                     <tr>
@@ -29,12 +31,12 @@
                         <td>{{ categoria.nombre }}</td>
                         <td>{{ categoria.start }}</td>
                         <td>
-                            <button type="button" class="btn btn-danger">
+                            <button ng-click="borrarActual(categoria)" type="button" class="btn btn-danger">
                                 <span class="clickable filter" data-toggle="tooltip" title="Toggle table filter" data-container="body">
                                         <i class="glyphicon glyphicon-minus"></i>
                                 </span>
                             </button>
-                            <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-warning">
+                            <button ng-click="guardarActual(categoria)" type="button" data-toggle="modal" data-target="#myModal" class="btn btn-warning">
                                 <span class="clickable filter" data-toggle="tooltip" title="Toggle table filter" data-container="body">
                                         <i class="glyphicon glyphicon-pencil"></i>
                                 </span>
@@ -51,12 +53,12 @@
                                         <h4 class="modal-title">Editar Categoria</h4>
                                     </div>
                                     <div class="modal-body">
-                                        <input ng-model="categoria.nombre" type="text" name="nombre" required>{{categoria.nombre}}</input>
-                                        <input ng-model="categoria.start" type="number" name="puntaje" required>
+                                        <input ng-model="categoriaActual.nombre" value="{{categoriaActual.nombre}}" type="text" name="nombre" required>
+                                        <input ng-model="categoriaActual.start" value="{{categoriaActual.start}}" type="number" name="puntaje" required>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" ng-click="editarCategoria(categoria)" class="btn btn-default" data-dismiss="modal">Aceptar</button>
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                        <button type="button" ng-click="editarCategoria(categoriaActual)" class="btn btn-default" data-dismiss="modal">Aceptar</button>
+                                        <button type="button" ng-click="vaciarActual()" class="btn btn-default" data-dismiss="modal">Cancelar</button>
                                     </div>
                                 </div>
 

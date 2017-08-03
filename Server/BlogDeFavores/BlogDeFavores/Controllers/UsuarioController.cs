@@ -39,9 +39,15 @@ namespace BlogDeFavores.Controllers
         }
 
         [HttpGet, Route("/api/usuario/")]
-        public string GetUsuario()
+        public IActionResult GetRankings()
         {
-            return "asd";
+            return Ok(usuarioService.GetRankings());
+        }
+
+        [HttpGet, Route("/api/usuario/compras")]
+        public IActionResult GetCompras()
+        {
+            return Ok(usuarioService.GetCompras());
         }
 
         [HttpPost, Route("/api/usuario")]

@@ -8,13 +8,18 @@
  * Controller of the clienteApp
  */
 angular.module('clienteApp')
-  .controller('PerfilcontrollerCtrl', function ($scope, usuarioService, $rootScope, $window, gauchadaservice) {
+  .controller('PerfilcontrollerCtrl', function ($scope, usuarioService, $rootScope, $window, gauchadaservice, categoriaservice) {
     $scope.verUsuario = function (usuarioId) {
       usuarioService.getUsuarioActual(usuarioId)
         .then(function (vals) {
           $rootScope.usuarioActual = vals.data;
+          categoriaservice.getByStart($rootScope.usuarioActual.puntaje).then(function(vals){
+            $rootScope.categoriaActual = vals.data;
+          })
         })
     };
+
+
 
     $scope.editarUsuario = function (usuario) {
       if ($rootScope.emailOriginal == usuario.email) {

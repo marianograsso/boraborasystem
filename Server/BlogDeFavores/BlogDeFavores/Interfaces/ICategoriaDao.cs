@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using BlogDeFavores.Models;
 
 namespace BlogDeFavores.Interfaces
@@ -8,5 +9,9 @@ namespace BlogDeFavores.Interfaces
         Categoria Registrar(Categoria categoria);
         List<Categoria> GetAll();
         bool ValidateCategoria(Categoria categoria);
+        Categoria Editar(Guid id, Categoria categoria);
+        void Borrar(Guid id);
+        Categoria GetByStart(int start);
+        CategoriaDto GetCategoriaByPuntaje(Guid puntaje);
     }
 }

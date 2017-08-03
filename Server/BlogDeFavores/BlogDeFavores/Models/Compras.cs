@@ -7,6 +7,7 @@ namespace BlogDeFavores.Models
     {
         public Guid Id { get; set; }
         public Guid IdComprador { get; set; }
+        //public Usuario Usuario { get; set; }
         [Required]
         public int CantCreditos { get; set; }
         [Required]

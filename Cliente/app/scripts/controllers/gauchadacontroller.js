@@ -8,7 +8,7 @@
  * Controller of the clienteApp
  */
 angular.module('clienteApp')
-  .controller('GauchadacontrollerCtrl', function ($scope, $rootScope, gauchadaservice, $window, usuarioService, comentarioservice, ofertaservice, calificacionservice, Upload, $timeout) {
+  .controller('GauchadacontrollerCtrl', function ($scope, $rootScope, gauchadaservice, $window, usuarioService, comentarioservice, ofertaservice, calificacionservice, Upload, $timeout, categoriaservice) {
 
 
     //Aca se puede borrar
@@ -76,7 +76,9 @@ angular.module('clienteApp')
           $scope.gauchada.FechaInicio = new Date();
           gauchadaservice.registrarGauchada($scope.gauchada)
             .then(function (vals) {
-              $window.location.href = "#!/";
+              usuarioService.updateUsuario($rootScope.usuario).then(function(vals){
+                $window.location.href = "#!/";
+              })
             })
 
         }
@@ -251,7 +253,10 @@ angular.module('clienteApp')
         usuarioService.getUsuarioActual(usuarioId)
           .then(function (vals) {
             $rootScope.usuarioActual = vals.data;
-            $window.location.href = "#!/perfil"
+            categoriaservice.getByStart($rootScope.usuarioActual.puntaje).then(function (vals) {
+              $rootScope.categoriaActual = vals.data;
+              $window.location.href = "#!/perfil"
+            })
           })
       }
     }

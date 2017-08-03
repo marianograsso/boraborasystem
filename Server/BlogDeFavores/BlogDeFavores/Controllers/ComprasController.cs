@@ -1,4 +1,5 @@
-﻿using BlogDeFavores.Interfaces;
+﻿using System.Collections.Generic;
+using BlogDeFavores.Interfaces;
 using BlogDeFavores.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -21,6 +22,12 @@ namespace BlogDeFavores.Controllers
                 return Ok(comprasService.Registrar(compra));
             }
             return BadRequest();
+        }
+
+        [HttpGet, Route("/api/compras/")]
+        public IActionResult GetCompras()
+        {
+            return Ok(comprasService.GetCompras());
         }
 
     }

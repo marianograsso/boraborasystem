@@ -17,7 +17,7 @@ angular
     'ngSanitize',
     'ngTouch',
     'ngFileUpload',
-    
+    'ui.bootstrap'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -80,6 +80,14 @@ angular
       })
       .when('/administrarcategorias', {
         templateUrl: 'views/administrarcategorias.html',
+        controller: 'AdmincontrollerCtrl',
+      })
+      .when('/verrankings', {
+        templateUrl: 'views/verrankings.html',
+        controller: 'AdmincontrollerCtrl',
+      })
+      .when('/vercompras', {
+        templateUrl: 'views/vercompras.html',
         controller: 'AdmincontrollerCtrl',
       })
       .otherwise({

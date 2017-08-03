@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using BlogDeFavores.Interfaces;
 using BlogDeFavores.Models;
 
@@ -41,6 +43,16 @@ namespace BlogDeFavores.Services
         public bool ValidateEmail(string email)
         {
             return usuarioDao.ValidateEmail(email);
+        }
+
+        public List<object> GetRankings()
+        {
+            return usuarioDao.GetRankings();
+        }
+
+        public List<object> GetCompras()
+        {
+            return usuarioDao.GetCompras();
         }
     }
 }

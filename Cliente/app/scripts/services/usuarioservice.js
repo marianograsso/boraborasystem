@@ -31,5 +31,11 @@ angular.module('clienteApp')
     service.validateEmail = function(email){
       return $http.get(url + "/validatemail/" + email);
     }
+    service.getRanking = function(){
+      return $http.get("http://localhost:57875/api/categoria/all/");
+    }
+    service.getCompras = function(){
+      return $http.get("http://localhost:57875/api/compras/");
+    }
     return service;
   });
